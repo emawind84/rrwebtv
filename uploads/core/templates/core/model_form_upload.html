@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% load material_form %}
+
+{% block content %}
+  {% if messages %}
+  <ul class="messages">
+      {% for message in messages %}
+      <li{% if message.tags %} class="{{ message.tags }} green-text"{% endif %}>{{ message }}</li>
+      {% endfor %}
+  </ul>
+  {% endif %}
+  <form method="post" enctype="multipart/form-data">
+    <div class="section">
+    {% csrf_token %}
+    {% form form=form %}{% endform %}
+    </div>
+    <div class="section">
+      <button type="submit" name="_submit" class="btn btn-primary waves-effect"><i class="material-icons left" >save</i> Upload</button>
+    </div>
+  </form>
+
+  <p><a href="{% url 'home' %}">Return to home</a></p>
+</div>
+{% endblock content %}

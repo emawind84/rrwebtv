@@ -1,0 +1,26 @@
+{% extends "base.html" %}{% load static %}
+
+{% block content %}
+<div class="section">
+  <div class="row">
+      <div class="col s12 m8 offset-m2">
+        <h3>RealRally - WebTV - Media Sharing</h3>
+        <p>This is a tiny web service for uploading replays and skins, 
+          in order to create videos for the community of RealRally, an Italian modificiation of the game Richard Burns Rally.
+          All the data collected are used for the only purpose of creating content for this game. In case you decided to give us your personal data, such as you real name (not required),
+          they might show up in some of these videos and shared on social media websites. 
+          Make sure you accept and read the terms before uploading the materials and your informations.</p>
+        <a href="{% url 'model_form_upload' %}" class="btn"><i class="material-icons left">cloud_upload</i>Upload Replay</a>
+      </div>
+  </div>
+</div>
+<div class="section">
+  <div class="row">
+      <div class="col s12 m8 offset-m2">
+        <div class="video-container">
+          <iframe width="853" height="480" src="https://www.youtube.com/embed/-GQ3k4ze5VU" frameborder="0" allowfullscreen></iframe>
+        </div>
+      </div>
+  </div>
+</div>
+{% endblock content %}

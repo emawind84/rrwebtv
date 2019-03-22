@@ -1,0 +1,97 @@
+<!DOCTYPE html>{% load static %}
+<html>
+  <head>
+    <title>{% block title %}RealRally - WebTV - Media Sharing{% endblock %}</title>
+    {% block head_favicon %}
+    {% endblock head_favicon %}
+    {% block head_meta_charset %}
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    {% endblock head_meta_charset %}
+    {% block head_meta_contentlanguage %}
+    <meta http-equiv="Content-Language" value="en-US" />
+    {% endblock head_meta_contentlanguage %}
+    {% block head_meta_viewport %}
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=3.0, minimum-scale=1.0" />
+    {% endblock head_meta_viewport %}
+
+    {% include 'material/includes/material_css.html' %}
+    <script src="{% static 'material/js/jquery.js' %}"></script>
+    {% include 'material/includes/material_js.html' %}
+
+    <style>
+      nav .brand-logo{margin-left:10px;}
+      nav .extra-content{margin-left:150px;height: 100%;}
+      @media only screen and (max-width: 992px) {
+        nav .extra-content{margin-left:60px;}
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+    <nav class="" role="navigation">
+      <div class="nav-wrapper container"><a id="logo-container" href="/" class="brand-logo">RealRally - WebTV - Media Sharing</a>
+        <ul class="right hide-on-med-and-down">
+          <li><a href="{% url 'home' %}" >Home</a></li>
+          <li><a href="{% url 'model_form_upload' %}" ><i class="material-icons left">cloud_upload</i>Upload Replay</a></li>
+          {% if user.is_authenticated %}
+          <li><a href="{% url 'replays' %}">Replays</a></li>
+          {% if perms.auth.add_user %}
+          <li><a href="{% url 'users:register' %}">Register</a></li>
+          {% endif %}
+          <li><a href="{% url 'users:logout' %}">Log out</a></li>
+          {% else %}
+          <li><a href="{% url 'users:login' %}">Log in</a></li>
+          {% endif %}
+        </ul>
+  
+        <ul id="nav-mobile" class="sidenav">
+          <li><a href="{% url 'home' %}" >Home</a></li>
+          <li><a href="{% url 'model_form_upload' %}">Upload Material</a></li>
+          {% if user.is_authenticated %}
+          <li><a href="{% url 'replays' %}">Replays</a></li>
+          {% endif %}
+        </ul>
+        <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+      </div>
+    </nav>
+    
+    <div class="container">
+      {% block content %}{% endblock content %}
+      {% block content-script %}{% endblock content-script %}
+    </div>
+    </main>
+    <footer class="page-footer">
+      <div class="container">
+        <div class="row">
+          <div class="col l12 s12">
+            <p class="light">All the data collected are used for the only purpose of creating content for the game Richard Burns Rally. 
+              In case you decided to give us your personal data, such as you real name (not required),
+                they might show up in some of these videos and shared on social media websites. 
+                Make sure you accept and read the terms before uploading the materials and your informations.</p>
+          </div>
+          
+          <div class="col l4 s12">
+            <div class="card">
+              <div class="card-content">
+                <img class="responsive-img" src="{% static 'img/discofilm-logo.png' %}" >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="footer-copyright">
+        <div class="container">
+        © 2019 Emanuele Disco All Rights Reserved
+        </div>
+      </div>
+    </footer>
+
+    {% block sidenav_javascript %}
+    <script>
+    $(document).ready(function(){
+      $('.sidenav').sidenav();
+    });
+    </script>
+    {% endblock sidenav_javascript %}
+  </body>
+</html>
