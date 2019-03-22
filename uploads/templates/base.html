@@ -29,7 +29,7 @@
   <body>
     <main>
     <nav class="" role="navigation">
-      <div class="nav-wrapper container"><a id="logo-container" href="/" class="brand-logo">RealRally - WebTV - Media Sharing</a>
+      <div class="nav-wrapper container"><a id="logo-container" href="/" class="brand-logo"><i class="material-icons left">live_tv</i> RealRally WebTV - Media Sharing</a>
         <ul class="right hide-on-med-and-down">
           <li><a href="{% url 'home' %}" >Home</a></li>
           <li><a href="{% url 'model_form_upload' %}" ><i class="material-icons left">cloud_upload</i>Upload Replay</a></li>
@@ -69,18 +69,32 @@
                 they might show up in some of these videos and shared on social media websites. 
                 Make sure you accept and read the terms before uploading the materials and your informations.</p>
           </div>
-          
-          <div class="col l4 s12">
-            <div class="card">
+          <div class="col l3 s6">
+            <div class="card transparent">
+              <div class="card-content">
+                <img class="responsive-img" src="{% static 'img/realrally-logo2.png' %}" >
+              </div>
+            </div>
+          </div>
+          <div class="col l3 s6">
+            <div class="card transparent">
               <div class="card-content">
                 <img class="responsive-img" src="{% static 'img/discofilm-logo.png' %}" >
               </div>
             </div>
           </div>
+          <div class="col l3 s6">
+            <div class="card transparent">
+              <div class="card-content">
+                <img class="responsive-img" src="{% static 'img/logo_etabetarace.png' %}" >
+              </div>
+            </div>
+          </div>
+          
         </div>
       </div>
       <div class="footer-copyright">
-        <div class="container">
+        <div class="container light">
         © 2019 Emanuele Disco All Rights Reserved
         </div>
       </div>
