@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'e#-^aknk(5k)ej6rh#h$i(%h(m9)-j*lwrc_1dxnk=a@-mixlt'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', 'localhost,127.0.0.1,192.168.0.10,rrwebtv.emawind.com').split(',')
 
@@ -146,6 +146,8 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 REPLAY_VALID_EXT = ['.rpl', '.mov', '.mp4']
+
+UPLOAD_MAX_SIZE = 104857600
 
 SESSION_EXPIRE_SECONDS = 600  # 10 minutes
 SESSION_EXPIRE_AFTER_LAST_ACTIVITY = True

@@ -11,5 +11,5 @@ def validate_replay_file(value):
 def validate_file_size(value):
     filesize = value.size
     
-    if filesize > 10485760:
+    if filesize > settings.UPLOAD_MAX_SIZE:
         raise ValidationError("The maximum file size that can be uploaded is 10MB.")
