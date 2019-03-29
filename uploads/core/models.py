@@ -13,7 +13,6 @@ def skin_directory_path(instance, filename):
 
 class Document(models.Model):
     note = models.CharField(max_length=255, blank=True)
-    replay = models.FileField(upload_to=replay_directory_path, blank=True, null=True, validators=[validate_file_size, validate_replay_file])
     skin = models.FileField(upload_to=skin_directory_path, blank=True, null=True, validators=[validate_file_size])
     pilot_name = models.CharField(max_length=200, blank=True)
     pilot_nickname = models.CharField(max_length=200, blank=False)
