@@ -69,6 +69,8 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 'django.template.context_processors.media',
+                'social_django.context_processors.backends',
+                'social_django.context_processors.login_redirect',
             ],
         },
     },
@@ -117,7 +119,6 @@ AUTHENTICATION_BACKENDS = (
     'django.contrib.auth.backends.ModelBackend',
 )
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/1.9/topics/i18n/
 
@@ -155,6 +156,8 @@ SESSION_EXPIRE_AFTER_LAST_ACTIVITY = True
 LOGIN_URL = 'users:login'
 
 LOGIN_REDIRECT_URL = 'home'
+
+HOME_VIDEO_URL = 'https://www.youtube.com/embed/-GQ3k4ze5VU'
 
 try:
     from .local_settings import *

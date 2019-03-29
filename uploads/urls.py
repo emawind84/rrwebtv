@@ -11,7 +11,7 @@ urlpatterns = [
 
     url(r'^admin/', admin.site.urls),
 
-    url(r'^uploads/form/$', views.model_form_upload, name='model_form_upload'),
+    url(r'^uploads/form/$', views.ReplayUploadView.as_view(), name='model_form_upload'),
     
     url(r'^replays/', views.replays, name='replays'),
 

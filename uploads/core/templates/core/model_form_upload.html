@@ -5,7 +5,7 @@
   {% if messages %}
   <div class="messages">
       {% for message in messages %}
-      <div{% if message.tags %} class="{{ message.tags }} card-panel green"{% endif %}>{{ message }}</div>
+      <div{% if message.tags %} class="{{ message.tags }} card-panel {% if message.level_tag == 'error' %}red{% else %}green{% endif %}"{% endif %}>{{ message }}</div>
       {% endfor %}
   </div>
   {% endif %}
