@@ -21,6 +21,9 @@
             </div>
             {% endif %}
             <div class="col s12">
+              {% if obj.replay %}
+              <a href="{{ replay.url }}">{{ replay.name }}</a><span class="badge">REPLAY</span><br>
+              {% endif %}
               {% for replay in obj.replay_set.all %}
               <a href="{{ replay.replay.url }}">{{ replay.replay.name }}</a><span class="badge">REPLAY</span><br>
               {% endfor %}
