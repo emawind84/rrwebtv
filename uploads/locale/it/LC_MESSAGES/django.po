@@ -1,0 +1,101 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-03-29 17:41+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: core/forms.py:14 core/forms.py:15
+msgid ""
+"This name might be included on videos and other resources online, make sure "
+"you read the terms."
+msgstr ""
+"Questo nome potrebbe essere incluso in video ed altre risorse online, "
+"assicurati di leggere le condizioni."
+
+#: core/forms.py:16
+msgid ""
+"This is the skin of the car, please upload a compressed file with only the "
+"files you edited!"
+msgstr ""
+"Questa e' la skin della macchina, carica un file compresso con solo i file "
+"modificati!"
+
+#: core/forms.py:17
+msgid ""
+"You can upload several replay files, make sure you upload only the original "
+"files, no other files are permitted."
+msgstr ""
+"Puoi caricare piu file allo stesso tempo, solo i replay originali sono "
+"permessi."
+
+#: core/forms.py:20
+msgid "Driver Real Name"
+msgstr "Nome del Pilota"
+
+#: core/forms.py:21
+msgid "Driver Nickname"
+msgstr "Nickname del Pilota"
+
+#: core/forms.py:22
+msgid "Co-driver Real Name"
+msgstr "Nome del Co-pilota"
+
+#: core/forms.py:23
+msgid "Co-driver Nickname"
+msgstr "Nickname del Co-pilota"
+
+#: core/forms.py:25
+msgid ""
+"I accept that these information collected will be used for the only purpose "
+"of creating videos inherent RealRally."
+msgstr ""
+"Accetto di condividere i miei dati, i quali verranno usati per il solo scopo di creare contenuti "
+"inerenti RealRally"
+
+#: core/forms.py:31
+msgid "Please accept the terms."
+msgstr "Per favore accetta i termini."
+
+#: core/templates/core/home.html:8
+msgid "home_message"
+msgstr ""
+"Questo e' un piccolo servizio web per caricare replay e skin, per poter "
+"create video ed altri contenuti per la comunita' di RealRally, una mod "
+"Italiana del gioco Richard Burns Rally.Tutti i dati raccolti sono usati per "
+"il solo scopo di creare contenuto per il gioco Richard Burns Rally. Se "
+"acconsenti a dare i tuoi dati personali, come per esempio il tuo nome reale "
+"(non richiesto), questi dati potrebbero essere mostrati nei video e "
+"condivisi su siti web di social media.Accertati di leggere ed accettare le "
+"condizioni prima di caricare il materiale ed i tuoi dati personali"
+
+#: core/views.py:64
+msgid "Thank you, we will create awesomeness with your contribution!"
+msgstr "Grazie per il tuo contributo!"
+
+#: templates/base.html:35 templates/base.html:49
+msgid "Upload Replay"
+msgstr "Carica Replay"
+
+#: templates/base.html:67
+msgid "terms_message"
+msgstr ""
+"Tutti i dati raccolti sono usati per il solo scopo di creare contenuto per "
+"il gioco Richard Burns Rally. Se acconsenti a dare i tuoi dati personali, "
+"come per esempio il tuo nome reale (non richiesto), questi dati potrebbero "
+"essere mostrati nei video e condivisi su siti web di social media.Accertati "
+"di leggere ed accettare le condizioni prima di caricare il materiale ed i "
+"tuoi dati personali"

@@ -1,4 +1,4 @@
-<!DOCTYPE html>{% load static %}
+<!DOCTYPE html>{% load static %}{% load i18n %}
 <html>
   <head>
     <title>{% block title %}RealRally - WebTV - Media Sharing{% endblock %}</title>
@@ -32,7 +32,7 @@
       <div class="nav-wrapper container"><a id="logo-container" href="/" class="brand-logo"><i class="material-icons left">live_tv</i> RealRally WebTV - Media Sharing</a>
         <ul class="right hide-on-med-and-down">
           <li><a href="{% url 'home' %}" >Home</a></li>
-          <li><a href="{% url 'model_form_upload' %}" ><i class="material-icons left">cloud_upload</i>Upload Replay</a></li>
+          <li><a href="{% url 'model_form_upload' %}" ><i class="material-icons left">cloud_upload</i>{% trans "Upload Replay" %}</a></li>
           {% if user.is_authenticated %}
           <li><a href="{% url 'replays' %}">Replays</a></li>
           {% if perms.auth.add_user %}
@@ -46,7 +46,7 @@
   
         <ul id="nav-mobile" class="sidenav">
           <li><a href="{% url 'home' %}" >Home</a></li>
-          <li><a href="{% url 'model_form_upload' %}">Upload Material</a></li>
+          <li><a href="{% url 'model_form_upload' %}">{% trans "Upload Replay" %}</a></li>
           {% if user.is_authenticated %}
           <li><a href="{% url 'replays' %}">Replays</a></li>
           {% endif %}
@@ -64,10 +64,7 @@
       <div class="container">
         <div class="row">
           <div class="col l12 s12">
-            <p class="light">All the data collected are used for the only purpose of creating content for the game Richard Burns Rally. 
-              In case you decided to give us your personal data, such as you real name (not required),
-                they might show up in some of these videos and shared on social media websites. 
-                Make sure you accept and read the terms before uploading the materials and your informations.</p>
+            <p class="light">{% trans "terms_message" %}</p>
           </div>
           <div class="col l3 s6">
             <div class="card transparent">

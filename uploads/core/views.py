@@ -8,11 +8,11 @@ from django.urls import reverse
 from django.contrib.auth.decorators import login_required
 from django.forms.utils import ErrorList
 from django.views import View
+from django.utils.translation import gettext as _
 
 from uploads.core.models import Document, Replay
 from uploads.core.forms import DocumentForm
 from uploads.core import validators
-
 
 def home(request):
     return render(request, 'core/home.html', {'video_url': settings.HOME_VIDEO_URL})
@@ -61,7 +61,7 @@ class ReplayUploadView(View):
 
             if form.is_valid():
                 #form = DocumentForm()
-                messages.success(request, 'Thank you, we will create awesomeness with your contribution!')
+                messages.success(request, _('Thank you, we will create awesomeness with your contribution!'))
                 return redirect(reverse('model_form_upload'))
         return render(request, 'core/model_form_upload.html', {'form': form})
 
