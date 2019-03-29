@@ -3,23 +3,38 @@
 {% block content %}
 <div class="section">
   <div class="row">
-    <div class="col s12 m8 offset-m2">
-      {% for obj in documents %}
-      <div class="card">
-        <div class="card-content">
-          <span class="card-title">Uploaded on {{ obj.uploaded_at }}</span>
-          {{ obj.pilot_nickname }} - {{ obj.pilot_name }}
-            <p>{{obj.note}}</p>
-            {% if obj.replay %}
-            <p><a href="{{ obj.replay.url }}">{{ obj.replay.name }}</a></p>
+    <div class="col s12 m12 xl8 offset-xl2">
+      <ul id="projects-collection" class="collection z-depth-1">
+        {% for obj in documents %}
+        <li class="collection-item">
+          <div class="row collections-content">
+            <div class="col s8"><h5 class="flow-text">Uploaded on {{ obj.uploaded_at }}</h5></div>
+            <div class="col s4">
+              <div class="secondary-content"><span class="chip green white-text">{% if obj.gdpr_accept %}gdpr accepted{% endif %}</span></div>
+            </div>
+            <div class="col s12">
+              <span class="flow-text">{{ obj.pilot_nickname }} - {{ obj.pilot_name }}</span>
+            </div>
+            {% if obj.note %}
+            <div class="col s12">
+                <blockquote class="">{{obj.note}}</blockquote>
+            </div>
             {% endif %}
-            {% if obj.skin %}
-            <p><a href="{{ obj.skin.url }}">{{ obj.skin.name }}</a></p>
-            {% endif %}
-        </div>
-      </div>
-      {% endfor %}
-    </div>
+            <div class="col s12">
+              {% for replay in obj.replay_set.all %}
+              <a href="{{ replay.replay.url }}">{{ replay.replay.name }}</a><span class="badge">REPLAY</span><br>
+              {% endfor %}
+            </div>
+            <div class="col s12">
+              {% if obj.skin %}
+              <a href="{{ obj.skin.url }}">{{ obj.skin.name }}</a><span class="badge">SKIN</span>
+              {% endif %}
+            </div>
+          </div>
+        </li>
+        {% endfor %}
+      </ul>
+   </div>
   </div>
 </div>
 {% endblock content %}
