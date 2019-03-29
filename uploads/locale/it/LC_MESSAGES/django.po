@@ -75,11 +75,11 @@ msgid "home_message"
 msgstr ""
 "Questo e' un piccolo servizio web per caricare replay e skin, per poter "
 "create video ed altri contenuti per la comunita' di RealRally, una mod "
-"Italiana del gioco Richard Burns Rally.Tutti i dati raccolti sono usati per "
+"Italiana del gioco Richard Burns Rally. Tutti i dati raccolti sono usati per "
 "il solo scopo di creare contenuto per il gioco Richard Burns Rally. Se "
 "acconsenti a dare i tuoi dati personali, come per esempio il tuo nome reale "
 "(non richiesto), questi dati potrebbero essere mostrati nei video e "
-"condivisi su siti web di social media.Accertati di leggere ed accettare le "
+"condivisi su siti web di social media. Accertati di leggere ed accettare le "
 "condizioni prima di caricare il materiale ed i tuoi dati personali"
 
 #: core/views.py:64
