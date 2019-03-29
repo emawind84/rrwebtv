@@ -13,6 +13,7 @@ cd $SCRIPT_BASE_PATH
 source $PYTHON_ENV/bin/activate
 
 if [ $# -eq 0 ]; then
+    python manage.py compilemessages
     python manage.py migrate
     python manage.py collectstatic --noinput
     SERVER_ADDRPORT="${SERVER_ADDRPORT:-0.0.0.0:8092}"
