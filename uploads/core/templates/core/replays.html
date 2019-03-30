@@ -10,7 +10,7 @@
           <div class="row collections-content">
             <div class="col s8"><h5 class="flow-text">Uploaded on {{ obj.uploaded_at }}</h5></div>
             <div class="col s4">
-              <div class="secondary-content"><span class="chip green white-text">{% if obj.gdpr_accept %}gdpr accepted{% endif %}</span></div>
+              <div class="secondary-content">{% if obj.gdpr_accept %}<span class="chip green white-text">gdpr accepted</span>{% endif %}</div>
             </div>
             <div class="col s12">
               <span class="flow-text">{{ obj.pilot_nickname }} - {{ obj.pilot_name }}</span>
