@@ -21,9 +21,15 @@ class Document(models.Model):
     uploaded_at = models.DateTimeField(auto_now_add=True)
     gdpr_accept = models.BooleanField(blank=False)
 
+    def __str__(self):
+        return '{} - {}'.format(self.uploaded_at, self.pilot_name)
+
     class Meta:
         ordering = ('uploaded_at', 'pilot_name')
 
 class Replay(models.Model):
     document = models.ForeignKey(Document, on_delete=models.CASCADE)
     replay = models.FileField(upload_to=replay_directory_path, blank=True, null=True, validators=[validate_file_size, validate_replay_file])
+
+    def __str__(self):
+        return self.replay.name
