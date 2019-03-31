@@ -22,12 +22,12 @@
             {% endif %}
             <div class="col s12">
               {% for replay in obj.replay_set.all %}
-              <a href="{{ replay.replay.url }}" class="truncate">{{ replay.replay.name }}</a><span class="badge">REPLAY</span><br>
+              <a href="{{ replay.replay.url }}" >{{ replay.replay.name|truncatechars:75 }}</a><span class="badge">REPLAY</span><br>
               {% endfor %}
             </div>
             <div class="col s12">
               {% if obj.skin %}
-              <a href="{{ obj.skin.url }}" class="truncate">{{ obj.skin.name }}</a><span class="badge">SKIN</span>
+              <a href="{{ obj.skin.url }}" >{{ obj.skin.name|truncatechars:75 }}</a><span class="badge">SKIN</span>
               {% endif %}
             </div>
           </div>
