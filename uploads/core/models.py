@@ -22,7 +22,7 @@ class Document(models.Model):
     gdpr_accept = models.BooleanField(blank=False)
 
     def __str__(self):
-        return '{} - {}'.format(self.uploaded_at, self.pilot_name)
+        return '{} - {}'.format(self.uploaded_at, self.pilot_nickname)
 
     class Meta:
         ordering = ('uploaded_at', 'pilot_name')
