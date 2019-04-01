@@ -1,3 +1,4 @@
+from datetime import datetime, timedelta
 from django.shortcuts import render, redirect, get_object_or_404
 from django.conf import settings
 from django.core.files.storage import FileSystemStorage
@@ -8,11 +9,18 @@ from django.urls import reverse
 from django.contrib.auth.decorators import login_required
 from django.forms.utils import ErrorList
 from django.views import View
+from django.db.models import Q
 from django.utils.translation import gettext as _
 
 from uploads.core.models import Document, Replay
 from uploads.core.forms import DocumentForm
 from uploads.core import validators
+
+def parse_date(datestr, format='%Y-%m-%d'):
+    try:
+        return datetime.strptime(datestr, format).date()
+    except:
+        return None
 
 def home(request):
     return render(request, 'core/home.html', {'video_url': settings.HOME_VIDEO_URL})
@@ -20,7 +28,26 @@ def home(request):
 @login_required
 def replays(request):
     documents = Document.objects.all()
-    return render(request, 'core/replays.html', {'documents': documents})
+    data = request.GET
+    
+    if data.get('search', '') != '':
+        documents = documents.filter(
+            Q(pilot_nickname__icontains=data.get('search')) | 
+            Q(pilot_name__icontains=data.get('search')) |
+            Q(note__icontains=data.get('search')) |
+            Q(replay__replay__icontains=data.get('search'))
+        )
+    
+    start_date = parse_date(data.get('from_date'))
+    end_date = parse_date(data.get('to_date'))
+    if start_date:
+        documents = documents.filter(uploaded_at__gte=start_date)
+    if end_date:
+        documents = documents.filter(uploaded_at__lte=end_date + timedelta(days=1))
+    
+    documents = documents.distinct()
+
+    return render(request, 'core/replays.html', {'documents': documents, 'form': data})
 
 @login_required
 def simple_upload(request):
@@ -48,7 +75,6 @@ class ReplayUploadView(View):
     
     def post(self, request):
         form = DocumentForm(request.POST, request.FILES)
-        replay_is_invalid = False
         if form.is_valid():
             document = form.save()
             for uploadedFile in request.FILES.getlist('replays'):
