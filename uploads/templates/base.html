@@ -24,6 +24,16 @@
       @media only screen and (max-width: 992px) {
         nav .extra-content{margin-left:60px;}
       }
+      
+      body {
+        display: flex;
+        min-height: 100vh;
+        flex-direction: column;
+      }
+
+      main {
+        flex: 1 0 auto;
+      }
     </style>
   </head>
   <body>
@@ -83,7 +93,7 @@
           <div class="col l3 s6">
             <div class="card transparent">
               <div class="card-content">
-                <img class="responsive-img" src="{% static 'img/logo_etabetarace.png' %}" >
+                <a href="http://www.etabetarace.it"><img class="responsive-img" src="{% static 'img/logo_etabetarace.png' %}" ></a>
               </div>
             </div>
           </div>
