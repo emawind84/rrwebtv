@@ -12,7 +12,11 @@
   <form method="post" enctype="multipart/form-data">
     <div class="section">
     {% csrf_token %}
-    {% form form=form %}{% endform %}
+    {% form form=form layout=form.layout %}
+      {% part form.pilot_nickname prefix %}<i class="material-icons prefix">airline_seat_recline_extra</i>{% endpart %}
+      {% part form.copilot_nickname prefix %}<i class="material-icons prefix">record_voice_over</i>{% endpart %}
+      {% part form.note prefix %}<i class="material-icons prefix">event_note</i>{% endpart %}
+    {% endform %}
     </div>
     <div class="section">
       <button type="submit" name="_submit" class="btn btn-primary waves-effect"><i class="material-icons left" >save</i>{% trans "Upload Replay" %}</button>

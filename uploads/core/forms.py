@@ -1,6 +1,7 @@
 from django import forms
 from django.utils.translation import gettext_lazy as _
 from uploads.core.models import Document
+from material import Layout, Row
 
 class DocumentForm(forms.ModelForm):
     note = forms.CharField(widget=forms.Textarea(attrs={'cols': 80}), required=False)
@@ -8,6 +9,12 @@ class DocumentForm(forms.ModelForm):
     help_text=_('You can upload several replay files, make sure you upload only the original files, no other files are permitted.'))
     #field_order = ['label', 'category', 'username', 'password', 'confirm_password', 'ip', 'url', 'config', 'notes', 'groups']
 
+    layout = Layout(
+        Row('pilot_nickname', 'pilot_name'),
+        Row('copilot_nickname', 'copilot_name'),
+        'note', 'replays', 'skin', 'gdpr_accept',
+    )
+    
     class Meta:
         model = Document
         fields = ('pilot_nickname', 'pilot_name', 'copilot_nickname', 'copilot_name', 'note', 'replays', 'skin', 'gdpr_accept')
