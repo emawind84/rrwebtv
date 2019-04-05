@@ -3,7 +3,7 @@
 {% block content %}
 <div class="section">
   <div class="row">
-    <div class="col s12 m12 xl8 offset-xl2">
+    <div class="col s12 m12 xl12">
       <form action="{% url 'replays' %}" method="GET">
         <div class="row">
           <div class="input-field col s12">
@@ -42,12 +42,10 @@
             {% endif %}
             <div class="col s12">
               {% for replay in obj.replay_set.all %}
-              <a href="{{ replay.replay.url }}" ><span class="badge">REPLAY</span>{{ replay.replay.name|truncatechars:75 }}</a><br>
+              <a href="{{ replay.replay.url }}" class="collection-item" ><span class="badge">REPLAY</span>{{ replay.replay.name|truncatechars:75 }}</a>
               {% endfor %}
-            </div>
-            <div class="col s12">
               {% if obj.skin %}
-              <a href="{{ obj.skin.url }}" >{{ obj.skin.name|truncatechars:75 }}</a><span class="badge">SKIN</span>
+              <a href="{{ obj.skin.url }}" class="collection-item" ><span class="badge">SKIN</span>{{ obj.skin.name|truncatechars:75 }}</a>
               {% endif %}
             </div>
           </div>

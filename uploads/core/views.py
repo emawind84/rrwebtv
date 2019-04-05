@@ -49,25 +49,6 @@ def replays(request):
 
     return render(request, 'core/replays.html', {'documents': documents, 'form': data})
 
-@login_required
-def simple_upload(request):
-    if request.method == 'POST' and request.FILES['myfile']:
-        myfile = request.FILES['myfile']
-        fs = FileSystemStorage()
-        filename = fs.save(myfile.name, myfile)
-        uploaded_file_url = fs.url(filename)
-        return render(request, 'core/simple_upload.html', {
-            'uploaded_file_url': uploaded_file_url
-        })
-    return render(request, 'core/simple_upload.html')
-
-def model_form_upload(request):
-    if request.method == 'POST':
-        pass
-    else:
-        form = DocumentForm()
-    return render(request, 'core/model_form_upload.html', {'form': form})
-
 class ReplayUploadView(View):
     def get(self, request):
         form = DocumentForm()
@@ -76,19 +57,24 @@ class ReplayUploadView(View):
     def post(self, request):
         form = DocumentForm(request.POST, request.FILES)
         if form.is_valid():
-            document = form.save()
+            document = form.save(commit=False)
+            replays = []
             for uploadedFile in request.FILES.getlist('replays'):
                 try:
-                    self.handle_uploaded_replay(uploadedFile, document)
+                    replays.append(self.handle_uploaded_replay(uploadedFile, document))
                 except ValidationError as e:
                     errors = form._errors.setdefault("replays", ErrorList())
                     errors.append(e.message)
-                    #messages.error(request, e.message)
+                    messages.error(request, e.message)
 
             if form.is_valid():
-                #form = DocumentForm()
+                document.save()
+                form.save_m2m()
+                for replay in replays:
+                    replay.save(document)
                 messages.success(request, _('Thank you, we will create awesomeness with your contribution!'))
                 return redirect(reverse('model_form_upload'))
+        
         return render(request, 'core/model_form_upload.html', {'form': form})
 
     def handle_uploaded_replay(self, replay, document):
@@ -96,4 +82,4 @@ class ReplayUploadView(View):
         validators.validate_replay_file(replay)
         replay = Replay(replay=replay)
         replay.document = document
-        replay.save()
+        return replay
