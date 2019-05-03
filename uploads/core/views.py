@@ -15,6 +15,7 @@ from django.utils.translation import gettext as _
 from uploads.core.models import Document, Replay
 from uploads.core.forms import DocumentForm
 from uploads.core import validators
+from uploads.core.maker import Maker
 
 def parse_date(datestr, format='%Y-%m-%d'):
     try:
@@ -73,6 +74,7 @@ class ReplayUploadView(View):
                 for replay in replays:
                     replay.save(document)
                 messages.success(request, _('Thank you, we will create awesomeness with your contribution!'))
+                send_notification()
                 return redirect(reverse('model_form_upload'))
         
         return render(request, 'core/model_form_upload.html', {'form': form})
@@ -83,3 +85,7 @@ class ReplayUploadView(View):
         replay = Replay(replay=replay)
         replay.document = document
         return replay
+
+def send_notification():
+    maker = Maker()
+    maker.send_async('rrwebtv_new_replay')
