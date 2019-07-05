@@ -1,4 +1,4 @@
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, date
 from django.shortcuts import render, redirect, get_object_or_404
 from django.conf import settings
 from django.core.files.storage import FileSystemStorage
@@ -43,6 +43,8 @@ def replays(request):
     end_date = parse_date(data.get('to_date'))
     if start_date:
         documents = documents.filter(uploaded_at__gte=start_date)
+    else:
+        documents = documents.filter(uploaded_at__gte=date.today() - timedelta(days=14))
     if end_date:
         documents = documents.filter(uploaded_at__lte=end_date + timedelta(days=1))
     
