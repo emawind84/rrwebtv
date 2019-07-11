@@ -1,6 +1,6 @@
 from django import forms
 from django.utils.translation import gettext_lazy as _
-from uploads.core.models import Document
+from uploads.core.models import Document, Replay
 from material import Layout, Row
 
 class DocumentForm(forms.ModelForm):
@@ -38,3 +38,10 @@ class DocumentForm(forms.ModelForm):
             self.add_error('gdpr_accept', _("Please accept the terms."))
 
         return gdpr_accept
+
+class ReplayForm(forms.ModelForm):
+    edited = forms.BooleanField(required=False)
+
+    class Meta:
+        model = Replay
+        fields = ('edited',)

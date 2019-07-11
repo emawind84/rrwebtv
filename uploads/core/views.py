@@ -13,7 +13,7 @@ from django.db.models import Q
 from django.utils.translation import gettext as _
 
 from uploads.core.models import Document, Replay
-from uploads.core.forms import DocumentForm
+from uploads.core.forms import DocumentForm, ReplayForm
 from uploads.core import validators
 from uploads.core.maker import Maker
 
@@ -38,6 +38,9 @@ def replays(request):
             Q(note__icontains=data.get('search')) |
             Q(replay__replay__icontains=data.get('search'))
         )
+    
+    if not data.get('edited'):
+        documents = documents.filter(replay__edited=False)
     
     start_date = parse_date(data.get('from_date'))
     end_date = parse_date(data.get('to_date'))
@@ -87,6 +90,18 @@ class ReplayUploadView(View):
         replay = Replay(replay=replay)
         replay.document = document
         return replay
+
+@login_required
+def edit_replay(request, replay_id):
+    replay = get_object_or_404(Replay, id=replay_id)
+    form = ReplayForm(instance=replay, data=request.POST)
+    if form.is_valid():
+        replay = form.save()
+        print(replay.edited)
+        #replay.save()
+        #form.save_m2m()
+
+    return HttpResponse('')
 
 def send_notification():
     maker = Maker()

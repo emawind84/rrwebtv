@@ -30,9 +30,11 @@ class Document(models.Model):
 class Replay(models.Model):
     document = models.ForeignKey(Document, on_delete=models.CASCADE)
     replay = models.FileField(upload_to=replay_directory_path, blank=True, null=True, validators=[validate_file_size, validate_replay_file])
+    edited = models.BooleanField(default=False)
 
-    def save(self, document):
-        self.document = document
+    def save(self, document=None):
+        if document:
+            self.document = document
         return super().save()
 
     def __str__(self):
