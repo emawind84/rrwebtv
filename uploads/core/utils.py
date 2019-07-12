@@ -8,7 +8,7 @@ def parse_date(datestr, format='%Y-%m-%d'):
         return None
 
 def parse_category(string):
-    p = re.compile('.*(R3C|WRC).*')
+    p = re.compile('.*(R3C|WRC|R5|R2|R1|S2000|S1600|WRC_16).*')
     return p.sub(r'\g<1>', string)
 
 def parse_stage(string):
