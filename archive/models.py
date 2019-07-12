@@ -3,10 +3,8 @@ from uploads.core.models import Replay
 
 class Performance(models.Model):
     note = models.CharField(max_length=255, blank=True)
-    pilot_name = models.CharField(max_length=200, blank=True)
     pilot_nickname = models.CharField(max_length=200, blank=True)
-    copilot_name = models.CharField(max_length=200, blank=True)
-    copilot_nickname = models.CharField(max_length=200, blank=True)
+    team = models.CharField(max_length=200, blank=True)
     rally = models.CharField(max_length=200, blank=True)
     track = models.CharField(max_length=200, blank=False)
     stage_number = models.CharField(max_length=200, blank=True)

@@ -5,4 +5,4 @@ class PerformanceForm(forms.ModelForm):
 
     class Meta:
         model = Performance
-        fields = ('track', 'youtube_id', 'car', 'time', 'category', 'pilot_nickname', 'pilot_name', 'rally', 'stage_number', 'note', 'replay')
+        fields = ('track', 'youtube_id', 'car', 'time', 'category', 'pilot_nickname', 'team', 'rally', 'stage_number', 'note', 'replay')

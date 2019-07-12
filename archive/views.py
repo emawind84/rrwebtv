@@ -29,7 +29,6 @@ def new_performance(request, replay_id=None):
             replay = Replay.objects.get(id=replay_id)
             form = PerformanceForm(initial={
                 'replay': replay,
-                'pilot_name': replay.document.pilot_name,
                 'pilot_nickname': replay.document.pilot_nickname,
                 'note': replay.document.note,
                 'stage_number': parse_stage(replay.replay.name),

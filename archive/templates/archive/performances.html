@@ -22,12 +22,13 @@
         <div class="col xl4 l6 m6 s12">
             <div class="card">
                 <div class="card-image waves-effect waves-block waves-light">
-                    <a href="http://www.youtube.com/watch?v={{obj.youtube_id}}" target="_blank" ><img src="http://img.youtube.com/vi/{{obj.youtube_id}}/0.jpg"></a>
+                    <a href="https://www.youtube.com/watch?v={{obj.youtube_id}}" target="_blank" ><img src="https://img.youtube.com/vi/{{obj.youtube_id}}/0.jpg"></a>
                 </div>
                 <div class="card-content">
                     <span class="card-title activator grey-text text-darken-4">{{obj.track}}<i class="material-icons right">more_vert</i></span>
-                    <p><b>Uploaded: </b>{{obj.uploaded_at}}</p>
+                    <p><b>Pilot: </b>{{obj.pilot_nickname}}</p>
                     <p><b>Car: </b>{{obj.car}}</p>
+                    <p><b>Team: </b>{{obj.team}}</p>
                 </div>
                 {% if user.is_authenticated %}
                 <div class="card-action">
@@ -38,11 +39,11 @@
                     <span class="card-title grey-text text-darken-4">{{obj.track}}<i class="material-icons right">close</i></span>
                     <p><b>Rally: </b>{{obj.rally}}</p>
                     <p><b>Car: </b>{{obj.car}}</p>
-                    <p><b>Pilot: </b>{{obj.pilot_name}}</p>
+                    <p><b>Pilot: </b>{{obj.pilot_nickname}}</p>
+                    <p><b>Team: </b>{{obj.team}}</p>
                     <p><b>Category: </b>{{obj.category}}</p>
                     <p><b>Time: </b>{{obj.time}}</p>
                     <p><b>Stage (SS): </b>{{obj.stage_number}}</p>
-                    <p><b>Note: </b>{{obj.note}}</p>
                     <p><b>Uploaded: </b>{{obj.uploaded_at}}</p>
                 </div>
             </div>
