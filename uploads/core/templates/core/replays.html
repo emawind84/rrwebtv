@@ -57,6 +57,11 @@
                   </label>
                 </span>
                 <span class="badge">REPLAY</span>
+                {% if not replay.performance %}
+                <span class="badge">
+                  <a href="{% url 'archive:new_performance' replay.id %}" >Archive</a>
+                </span>
+                {% endif %}
                 <a href="{{ replay.replay.url }}" class="" >{{ replay.replay.name|truncatechars:75 }}</a></p>
               {% endfor %}
               {% if obj.skin %}

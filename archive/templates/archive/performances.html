@@ -1,0 +1,64 @@
+{% extends "base.html" %}{% load i18n %}
+{% load material_form %}
+
+{% block content %}
+<div class="section">
+  <div class="row">
+    <div class="col s12 m12 xl12">
+      {% csrf_token %}
+      <form action="{% url 'archive:performances' %}" method="GET">
+        <div class="row">
+          <div class="input-field col s10">
+            <input name="search" id="search" type="search" value="{{ form.search  }}" >
+            <label for="search"><i class="material-icons">search</i></label>
+          </div>
+          <div class="input-field col s2">
+            <button class="btn" type="submit">{% trans "Search" %}</button>
+          </div>
+        </div>
+      </form>
+      <div class="row">
+        {% for obj in performances %}
+        <div class="col xl4 l6 m6 s12">
+            <div class="card">
+                <div class="card-image waves-effect waves-block waves-light">
+                    <a href="http://www.youtube.com/watch?v={{obj.youtube_id}}" target="_blank" ><img src="http://img.youtube.com/vi/{{obj.youtube_id}}/0.jpg"></a>
+                </div>
+                <div class="card-content">
+                    <span class="card-title activator grey-text text-darken-4">{{obj.track}}<i class="material-icons right">more_vert</i></span>
+                    <p><b>Uploaded: </b>{{obj.uploaded_at}}</p>
+                    <p><b>Car: </b>{{obj.car}}</p>
+                </div>
+                {% if user.is_authenticated %}
+                <div class="card-action">
+                    <a href="{% url 'archive:delete_performance' obj.id %}" >Delete</a>
+                </div>
+                {% endif %}
+                <div class="card-reveal">
+                    <span class="card-title grey-text text-darken-4">{{obj.track}}<i class="material-icons right">close</i></span>
+                    <p><b>Rally: </b>{{obj.rally}}</p>
+                    <p><b>Car: </b>{{obj.car}}</p>
+                    <p><b>Pilot: </b>{{obj.pilot_name}}</p>
+                    <p><b>Category: </b>{{obj.category}}</p>
+                    <p><b>Time: </b>{{obj.time}}</p>
+                    <p><b>Stage (SS): </b>{{obj.stage_number}}</p>
+                    <p><b>Note: </b>{{obj.note}}</p>
+                    <p><b>Uploaded: </b>{{obj.uploaded_at}}</p>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+      </div>
+   </div>
+  </div>
+</div>
+<script>
+$(document).ready(function(){
+  $('.datepicker').datepicker({
+    format: 'yyyy-mm-dd', 
+    autoClose: true, 
+    showClearBtn: true
+  });
+});
+</script>
+{% endblock content %}

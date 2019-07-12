@@ -16,12 +16,7 @@ from uploads.core.models import Document, Replay
 from uploads.core.forms import DocumentForm, ReplayForm
 from uploads.core import validators
 from uploads.core.maker import Maker
-
-def parse_date(datestr, format='%Y-%m-%d'):
-    try:
-        return datetime.strptime(datestr, format).date()
-    except:
-        return None
+from uploads.core.utils import parse_date
 
 def home(request):
     return render(request, 'core/home.html', {'video_url': settings.HOME_VIDEO_URL})
@@ -81,7 +76,7 @@ class ReplayUploadView(View):
                 messages.success(request, _('Thank you, we will create awesomeness with your contribution!'))
                 send_notification()
                 return redirect(reverse('model_form_upload'))
-        
+
         return render(request, 'core/model_form_upload.html', {'form': form})
 
     def handle_uploaded_replay(self, replay, document):

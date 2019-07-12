@@ -1,0 +1,23 @@
+{% extends "base.html" %}{% load i18n %}
+{% load material_form %}
+
+{% block content %}
+<div class="row valign">
+  <div class="col s12 m8 offset-m2 l8 offset-l2">
+    <div class="card">
+      <form action="{% url 'archive:delete_performance' performance.id  %}" method='post' >
+        {% csrf_token %}
+        <div class="card-content">
+          <div class="card-title grey-text text-darken-2">Delete the performance "{{ performance }}"?</div>
+        </div>
+        <div class="card-action">
+          <div class="right-align">
+            <a href="{% url 'archive:performance' performance.id  %}" class="btn btn-primary waves-effect" >Cancel</a>
+            <button type="submit" name="_submit" class="waves-effect waves-red btn-flat grey-text text-darken-3">delete</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock content %}

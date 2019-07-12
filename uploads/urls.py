@@ -17,6 +17,8 @@ urlpatterns = [
 
     url(r'^edit_replay/(?P<replay_id>\d+)/$', views.edit_replay, name='edit_replay'),
 
+    path('archive/', include(('archive.urls', 'archive'), namespace='archive')),
+
     path('users/', include(('users.urls', 'users'), namespace='users')),
 
     path('accounts/', include('django.contrib.auth.urls')),

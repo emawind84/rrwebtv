@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'social_django',
     'users',
     'uploads.core',
+    'archive',
 ]
 
 MIDDLEWARE = [

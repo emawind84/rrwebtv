@@ -13,6 +13,7 @@ cd $SCRIPT_BASE_PATH
 source $PYTHON_ENV/bin/activate
 
 if [ $# -eq 0 ]; then
+    pip install -r requirements.txt
     #python manage.py compilemessages
     python manage.py migrate
     python manage.py collectstatic --noinput

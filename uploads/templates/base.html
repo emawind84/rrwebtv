@@ -11,7 +11,7 @@
     <meta http-equiv="Content-Language" value="en-US" />
     {% endblock head_meta_contentlanguage %}
     {% block head_meta_viewport %}
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=3.0, minimum-scale=1.0" />
+    <meta name="viewport" content="width=840, initial-scale=1.0, maximum-scale=3.0, minimum-scale=1.0" />
     {% endblock head_meta_viewport %}
 
     {% include 'material/includes/material_css.html' %}
@@ -42,6 +42,7 @@
       <div class="nav-wrapper container"><a id="logo-container" href="/" class="brand-logo"><i class="material-icons left">live_tv</i> RealRally WebTV</a>
         <ul class="right hide-on-med-and-down">
           <li><a href="{% url 'home' %}" >Home</a></li>
+          <li><a href="{% url 'archive:performances' %}" ><i class="material-icons left">videocam</i>{% trans "Search" %}</a></li>
           <li><a href="{% url 'model_form_upload' %}" ><i class="material-icons left">cloud_upload</i>{% trans "Upload Replay" %}</a></li>
           {% if user.is_authenticated %}
           <li><a href="{% url 'replays' %}">Replays</a></li>
