@@ -14,6 +14,8 @@ urlpatterns = [
 
     path('new_performance/<int:replay_id>', views.new_performance, name="new_performance"),
 
+    path('edit_performance/<int:performance_id>', views.edit_performance, name="edit_performance"),
+
     path('delete_performance/<int:performance_id>', views.delete_performance, name="delete_performance"),
 
     path('performances/<int:performance_id>', views.performance, name="performance"),

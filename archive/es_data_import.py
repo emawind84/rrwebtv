@@ -26,8 +26,16 @@ def postIndex(index, data):
     _logger.debug(r.text)
     return r
 
-def putIndex(index, id, data):
+def createDocument(index, id, data):
     r = requests.put( "http://%s:%s/%s/doc/%s?op_type=create" % 
+              (ES_HOST, ES_PORT, index, id), 
+              data=json.dumps(data))
+    
+    _logger.debug(r.text)
+    return r
+
+def createOrUpdateDocument(index, id, data):
+    r = requests.put( "http://%s:%s/%s/doc/%s" % 
               (ES_HOST, ES_PORT, index, id), 
               data=json.dumps(data))
     
@@ -38,7 +46,7 @@ def deleteDocument(index, id):
     r = requests.delete( "http://%s:%s/%s/doc/%s" % (ES_HOST, ES_PORT, index, id)) 
     return r
 
-def search(index, search=None, fromdate=None, todate=None):
+def searchDocuments(index, search=None, fromdate=None, todate=None):
     query = {
         "query": {
             "bool": {

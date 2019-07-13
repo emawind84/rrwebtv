@@ -163,6 +163,8 @@ LOGIN_REDIRECT_URL = 'home'
 
 HOME_VIDEO_URL = 'https://www.youtube.com/embed/-GQ3k4ze5VU'
 
+ES_INDEX = 'rrwebtv-dev'
+
 try:
     from .local_settings import *
 except ImportError as err:

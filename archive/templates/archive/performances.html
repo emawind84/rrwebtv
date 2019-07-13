@@ -26,25 +26,27 @@
                 </div>
                 <div class="card-content">
                     <span class="card-title activator grey-text text-darken-4">{{obj.track}}<i class="material-icons right">more_vert</i></span>
-                    <p><b>Pilot: </b>{{obj.pilot_nickname}}</p>
-                    <p><b>Car: </b>{{obj.car}}</p>
-                    <p><b>Team: </b>{{obj.team}}</p>
+                    <p><b>{% trans "Pilot" %}: </b>{{obj.pilot_nickname}}</p>
+                    <p><b>{% trans "Car" %}: </b>{{obj.car}}</p>
+                    <p><b>{% trans "Team" %}: </b>{{obj.team}}</p>
                 </div>
                 {% if user.is_authenticated %}
                 <div class="card-action">
+                    <a href="{% url 'archive:edit_performance' obj.id %}" >Edit</a>
                     <a href="{% url 'archive:delete_performance' obj.id %}" >Delete</a>
                 </div>
                 {% endif %}
                 <div class="card-reveal">
                     <span class="card-title grey-text text-darken-4">{{obj.track}}<i class="material-icons right">close</i></span>
                     <p><b>Rally: </b>{{obj.rally}}</p>
-                    <p><b>Car: </b>{{obj.car}}</p>
-                    <p><b>Pilot: </b>{{obj.pilot_nickname}}</p>
-                    <p><b>Team: </b>{{obj.team}}</p>
-                    <p><b>Category: </b>{{obj.category}}</p>
-                    <p><b>Time: </b>{{obj.time}}</p>
-                    <p><b>Stage (SS): </b>{{obj.stage_number}}</p>
-                    <p><b>Uploaded: </b>{{obj.uploaded_at}}</p>
+                    <p><b>{% trans "Car" %}: </b>{{obj.car}}</p>
+                    <p><b>{% trans "Pilot" %}: </b>{{obj.pilot_nickname}}</p>
+                    <p><b>{% trans "Team" %}: </b>{{obj.team}}</p>
+                    <p><b>{% trans "Category" %}: </b>{{obj.category}}</p>
+                    <p><b>{% trans "Time" %}: </b>{{obj.time}}</p>
+                    <p><b>{% trans "Stage (SS)" %}": </b>{{obj.stage_number}}</p>
+                    <p><b>{% trans "Note" %}: </b>{{obj.note}}</p>
+                    <p><b>{% trans "Uploaded" %}: </b>{{obj.uploaded_at}}</p>
                 </div>
             </div>
         </div>
