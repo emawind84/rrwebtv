@@ -8,11 +8,11 @@
       {% csrf_token %}
       <form action="{% url 'archive:performances' %}" method="GET">
         <div class="row">
-          <div class="input-field col s10">
+          <div class="input-field col m9 s8">
             <input name="search" id="search" type="search" value="{{ form.search  }}" >
             <label for="search"><i class="material-icons">search</i></label>
           </div>
-          <div class="input-field col s2">
+          <div class="input-field col m3 s4">
             <button class="btn" type="submit">{% trans "Search" %}</button>
           </div>
         </div>

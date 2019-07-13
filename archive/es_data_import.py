@@ -46,31 +46,10 @@ def deleteDocument(index, id):
     r = requests.delete( "http://%s:%s/%s/doc/%s" % (ES_HOST, ES_PORT, index, id)) 
     return r
 
-def searchDocuments(index, search=None, fromdate=None, todate=None):
-    query = {
-        "query": {
-            "bool": {
-                "must": [],
-                "must_not": [],
-                "should": [
-                    
-                ]
-            }
-        },
-        "from": 0,
-        "size": 10,
-        "sort": [],
-        "aggs": {}
-    }
-    if search:
-        query['query']['bool']['should'].append({
-            "query_string": {
-                "default_field": "_all",
-                "query": search
-            }
-        })
-
+def searchDocuments(index, query):
     r = requests.get("http://%s:%s/%s/_search" % (ES_HOST, ES_PORT, index), data=json.dumps(query))
     _logger.debug(r.text)
     data = json.loads(r.text)
-    return [d['_source'] for d in data['hits']['hits']]
+    if data['hits']:
+        return [d['_source'] for d in data['hits']['hits']]
+    return []

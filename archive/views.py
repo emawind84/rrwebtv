@@ -7,7 +7,7 @@ from django.urls import reverse
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from archive.models import Performance
-from archive.forms import PerformanceForm
+from archive.forms import PerformanceForm, initial_from_replay
 from archive.performance import index, delete, search
 from uploads.core.models import Replay
 from uploads.core.utils import parse_date, parse_stage, parse_category, parse_car
@@ -18,7 +18,7 @@ def performances(request):
     start_date = parse_date(data.get('from_date'))
     end_date = parse_date(data.get('to_date'))
     
-    performances = search(search=data.get('search'), fromdate=start_date, todate=end_date)
+    performances = search(search=data.get('search'))
 
     return render(request, 'archive/performances.html', {'performances': performances, 'form': data})
 
@@ -27,14 +27,7 @@ def new_performance(request, replay_id=None):
     if request.method != 'POST':
         if replay_id:
             replay = Replay.objects.get(id=replay_id)
-            form = PerformanceForm(initial={
-                'replay': replay,
-                'pilot_nickname': replay.document.pilot_nickname,
-                'note': replay.document.note,
-                'stage_number': parse_stage(replay.replay.name),
-                'car': parse_car(replay.replay.name),
-                'category': parse_category(replay.replay.name),
-            })
+            form = PerformanceForm(initial=initial_from_replay(replay))
         else:
             form = PerformanceForm()
     else:
