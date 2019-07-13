@@ -25,7 +25,7 @@ class Document(models.Model):
         return '{} - {}'.format(self.uploaded_at, self.pilot_nickname)
 
     class Meta:
-        ordering = ('uploaded_at', 'pilot_name')
+        ordering = ('-uploaded_at', 'pilot_name')
 
 class Replay(models.Model):
     document = models.ForeignKey(Document, on_delete=models.CASCADE)

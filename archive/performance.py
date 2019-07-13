@@ -42,7 +42,9 @@ def search(search):
         },
         "from": 0,
         "size": 50,
-        "sort": [],
+        "sort": [
+            { "uploaded_at" : {"order" : "desc"}},
+        ],
         "aggs": {}
     }
     if search:
