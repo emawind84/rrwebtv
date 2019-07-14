@@ -7,7 +7,7 @@ from django.urls import reverse
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from archive.models import Performance
-from archive.forms import PerformanceForm, initial_from_replay
+from archive.forms import PerformanceForm, PublicPerformanceForm, initial_from_replay
 from archive.performance import index, delete, search
 from uploads.core.models import Replay
 from uploads.core.utils import parse_date, parse_stage, parse_category, parse_car
@@ -23,13 +23,10 @@ def performances(request):
     return render(request, 'archive/performances.html', {'performances': performances, 'form': data})
 
 @login_required
-def new_performance(request, replay_id=None):
+def new_performance(request, replay_id):
     if request.method != 'POST':
-        if replay_id:
-            replay = Replay.objects.get(id=replay_id)
-            form = PerformanceForm(initial=initial_from_replay(replay))
-        else:
-            form = PerformanceForm()
+        replay = Replay.objects.get(id=replay_id)
+        form = PerformanceForm(initial=initial_from_replay(replay))
     else:
         form = PerformanceForm(data=request.POST)
         if form.is_valid():
@@ -37,8 +34,21 @@ def new_performance(request, replay_id=None):
             index(performance)
             return HttpResponseRedirect(reverse('archive:performances'))
 
-    context = {'form': form}
+    context = {'form': form, 'replay_id': replay_id}
     return render(request, 'archive/new_performance.html', context)
+
+def new_public_video(request):
+    if request.method != 'POST':
+        form = PublicPerformanceForm()
+    else:
+        form = PublicPerformanceForm(data=request.POST)
+        if form.is_valid():
+            performance = form.save()
+            index(performance)
+            return HttpResponseRedirect(reverse('archive:performances'))
+
+    context = {'form': form}
+    return render(request, 'archive/new_public_video.html', context)
 
 def performance(request, performance_id):
     performance = get_object_or_404(Performance, id=performance_id)

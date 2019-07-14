@@ -28,7 +28,7 @@ class DocumentForm(forms.ModelForm):
             'pilot_nickname': _('Driver Nickname'),
             'copilot_name': _('Co-driver Real Name'),
             'copilot_nickname': _('Co-driver Nickname'),
-            'note': 'Comments',
+            'note': _('Comments'),
             'gdpr_accept': _('I accept that these information collected will be used for the only purpose of creating videos inherent RealRally.'),
         }
 

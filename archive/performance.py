@@ -1,6 +1,7 @@
 from archive.es_data_import import createOrUpdateDocument, deleteDocument, searchDocuments
 from archive.models import Performance
 from django.conf import settings
+from dateutil.parser import parse
 import re
 
 def create(**args):
@@ -54,4 +55,8 @@ def search(search):
                 "query": search
             }
         })
-    return  searchDocuments(settings.ES_INDEX, query)
+    documents = searchDocuments(settings.ES_INDEX, query)
+    for d in documents:
+        d['uploaded_at'] = parse(d['uploaded_at'])
+
+    return documents

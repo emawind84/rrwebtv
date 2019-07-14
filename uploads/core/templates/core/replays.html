@@ -62,6 +62,11 @@
                   <a href="{% url 'archive:new_performance' replay.id %}" >Archive</a>
                 </span>
                 {% endif %}
+                {% if replay.performance %}
+                <span class="badge">
+                  <a href="{% url 'archive:edit_performance' replay.performance.id %}" >Edit video</a>
+                </span>
+                {% endif %}
                 <a href="{{ replay.replay.url }}" class="" >{{ replay.replay.name|truncatechars:75 }}</a></p>
               {% endfor %}
               {% if obj.skin %}
