@@ -22,11 +22,14 @@
         <div class="col xl4 l6 m6 s12">
             <div class="card">
                 <div class="card-image waves-effect waves-block waves-light">
-                    <a href="https://www.youtube.com/watch?v={{obj.youtube_id}}" target="_blank" ><img src="https://img.youtube.com/vi/{{obj.youtube_id}}/0.jpg"></a>
+                    <div class="video-container">
+                      <iframe width="853" height="480" src="https://www.youtube.com/embed/{{obj.youtube_id}}" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                    <!-- <a href="https://www.youtube.com/watch?v={{obj.youtube_id}}" target="_blank" ><img src="https://img.youtube.com/vi/{{obj.youtube_id}}/0.jpg"></a> -->
                 </div>
                 <div class="card-content">
                     <span class="card-title activator grey-text text-darken-4">{{obj.track}}<i class="material-icons right">more_vert</i></span>
-                    <p><b>{% trans "Pilot" %}: </b>{{obj.pilot_nickname}}</p>
+                    <p><b>{% trans "Pilot" %}: </b>{{obj.pilot}}</p>
                     <p><b>{% trans "Car" %}: </b>{{obj.car}}</p>
                     <p><b>{% trans "Team" %}: </b>{{obj.team}}</p>
                 </div>
@@ -40,7 +43,7 @@
                     <span class="card-title grey-text text-darken-4">{{obj.track}}<i class="material-icons right">close</i></span>
                     <p><b>Rally: </b>{{obj.rally}}</p>
                     <p><b>{% trans "Car" %}: </b>{{obj.car}}</p>
-                    <p><b>{% trans "Pilot" %}: </b>{{obj.pilot_nickname}}</p>
+                    <p><b>{% trans "Pilot" %}: </b>{{obj.pilot}}</p>
                     <p><b>{% trans "Team" %}: </b>{{obj.team}}</p>
                     <p><b>{% trans "Category" %}: </b>{{obj.category}}</p>
                     <p><b>{% trans "Time" %}: </b>{{obj.time}}</p>

@@ -18,13 +18,18 @@ def index(performance):
         'category': performance.category,
         'youtube_id': performance.youtube_id,
         'uploaded_at': performance.uploaded_at.utcnow().strftime('%Y-%m-%dT%H:%M:%S.000Z'),
-        'pilot_nickname': performance.pilot_nickname,
+        'pilot': performance.pilot,
         'stage_number': performance.stage_number,
         'car': performance.car,
         'time': performance.time,
         'team': performance.team,
-        'note': performance.note
+        'note': performance.note,
+        'featured': performance.featured
     })
+
+def index_all():
+    for performance in Performance.objects.all():
+        index(performance)
 
 def delete(performance):
     deleteDocument(settings.ES_INDEX, performance.id)

@@ -18,8 +18,11 @@ from uploads.core import validators
 from uploads.core.maker import Maker
 from uploads.core.utils import parse_date
 
+from archive.models import Performance
+
 def home(request):
-    return render(request, 'core/home.html', {'video_url': settings.HOME_VIDEO_URL})
+    performances = Performance.objects.all().filter(featured=True)
+    return render(request, 'core/home.html', {'performances': performances, 'video_url': settings.HOME_VIDEO_URL})
 
 @login_required
 def replays(request):
