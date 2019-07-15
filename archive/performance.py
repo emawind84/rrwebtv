@@ -47,7 +47,7 @@ def search(search):
             }
         },
         "from": 0,
-        "size": 50,
+        "size": 20,
         "sort": [
             { "uploaded_at" : {"order" : "desc"}},
         ],
