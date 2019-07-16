@@ -18,9 +18,14 @@ def performances(request):
     start_date = parse_date(data.get('from_date'))
     end_date = parse_date(data.get('to_date'))
     
-    performances = search(search=data.get('search'))
+    documents, total, took = search(search=data.get('search'))
 
-    return render(request, 'archive/performances.html', {'performances': performances, 'form': data})
+    return render(request, 'archive/performances.html', {
+        'performances': documents, 
+        'total': total, 
+        'form': data,
+        'took': took / 1000
+    })
 
 @login_required
 def new_performance(request, replay_id):

@@ -95,10 +95,6 @@ def edit_replay(request, replay_id):
     form = ReplayForm(instance=replay, data=request.POST)
     if form.is_valid():
         replay = form.save()
-        print(replay.edited)
-        #replay.save()
-        #form.save_m2m()
-
     return HttpResponse('')
 
 def send_notification():

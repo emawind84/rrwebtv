@@ -6,6 +6,7 @@ import requests
 import logging
 import argparse
 import sys
+from django.conf import settings
 
 # ElasticSearch parameters
 ES_HOST = '127.0.0.1'
@@ -14,7 +15,7 @@ ES_PORT = '9200'
 # Lets make some logs!
 logging.basicConfig(format='%(asctime)s - %(levelname)s: %(message)s')
 _logger = logging.getLogger(__name__)
-_logger.setLevel(logging.DEBUG)
+_logger.setLevel(settings.LOGGING_LEVEL)
 
 def postIndex(index, data):
     s = requests.Session()
@@ -49,7 +50,11 @@ def deleteDocument(index, id):
 def searchDocuments(index, query):
     r = requests.get("http://%s:%s/%s/_search" % (ES_HOST, ES_PORT, index), data=json.dumps(query))
     _logger.debug(r.text)
-    data = json.loads(r.text)
-    if data['hits']:
-        return [d['_source'] for d in data['hits']['hits']]
-    return []
+    jsonResponse = json.loads(r.text)
+    data = []; total = 0; took = 0
+    if jsonResponse['hits']:
+        data = [d['_source'] for d in jsonResponse['hits']['hits']]
+        total = jsonResponse['hits']['total']
+        took = jsonResponse['took']
+
+    return (data, total, took)

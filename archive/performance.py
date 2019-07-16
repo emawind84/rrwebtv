@@ -60,8 +60,8 @@ def search(search):
                 "query": search
             }
         })
-    documents = searchDocuments(settings.ES_INDEX, query)
+    documents, total, took = searchDocuments(settings.ES_INDEX, query)
     for d in documents:
         d['uploaded_at'] = parse(d['uploaded_at'])
 
-    return documents
+    return documents, total, took

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-07-14 12:22+0900\n"
+"POT-Creation-Date: 2019-07-16 10:31+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,69 +18,70 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: forms.py:13
+#: forms.py:14
 msgid "Track Name"
 msgstr ""
 
-#: forms.py:14
+#: forms.py:15
 msgid "YouTube URL or ID"
 msgstr ""
 
-#: forms.py:15 templates/archive/performances.html:30
-#: templates/archive/performances.html:42
+#: forms.py:16 templates/archive/performances.html:38
+#: templates/archive/performances.html:50
 msgid "Car"
 msgstr ""
 
-#: forms.py:16 templates/archive/performances.html:46
+#: forms.py:17 templates/archive/performances.html:54
 msgid "Time"
 msgstr ""
 
-#: forms.py:17 templates/archive/performances.html:45
+#: forms.py:18 templates/archive/performances.html:53
 msgid "Category"
 msgstr ""
 
-#: forms.py:18
-msgid "Pilot Nickname"
+#: forms.py:19 templates/archive/performances.html:37
+#: templates/archive/performances.html:51
+msgid "Pilot"
 msgstr ""
 
-#: forms.py:19 templates/archive/performances.html:31
-#: templates/archive/performances.html:44
+#: forms.py:20 templates/archive/performances.html:39
+#: templates/archive/performances.html:52
 msgid "Team"
 msgstr ""
 
-#: forms.py:20
+#: forms.py:21
 msgid "Rally"
 msgstr ""
 
-#: forms.py:21 templates/archive/performances.html:47
+#: forms.py:22 templates/archive/performances.html:55
 msgid "Stage (SS)"
 msgstr ""
 
-#: forms.py:22
+#: forms.py:23
 msgid "Comments"
 msgstr ""
 
-#: forms.py:23
+#: forms.py:24 forms.py:32
 msgid ""
 "I accept that these information collected will be used for the only purpose "
 "of creating videos inherent RealRally."
 msgstr ""
 
-#: forms.py:39
+#: forms.py:40
 msgid "Please accept the terms."
 msgstr ""
 
-#: templates/archive/new_performance.html:11
+#: templates/archive/new_performance.html:10
 #: templates/archive/new_public_video.html:10
 msgid "Performance"
 msgstr ""
 
-#: templates/archive/new_performance.html:19
+#: templates/archive/new_performance.html:18
 #: templates/archive/new_public_video.html:18
 msgid "Add video"
 msgstr ""
 
-#: templates/archive/new_performance.html:20
+#: templates/archive/new_performance.html:19
 #: templates/archive/new_public_video.html:19
 msgid "Cancel"
 msgstr ""
@@ -89,15 +90,15 @@ msgstr ""
 msgid "Search"
 msgstr ""
 
-#: templates/archive/performances.html:29
-#: templates/archive/performances.html:43
-msgid "Pilot"
+#: templates/archive/performances.html:22
+#, python-format
+msgid "About %(total)s results (%(took)s seconds)"
 msgstr ""
 
-#: templates/archive/performances.html:48
+#: templates/archive/performances.html:56
 msgid "Note"
 msgstr ""
 
-#: templates/archive/performances.html:49
+#: templates/archive/performances.html:57
 msgid "Uploaded"
 msgstr ""
