@@ -129,6 +129,7 @@ LANGUAGE_CODE = 'en-us'
 
 LOCALE_PATHS = ['uploads/locale']
 
+# don't change keep UTC
 TIME_ZONE = 'UTC'
 
 USE_I18N = True

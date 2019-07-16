@@ -17,7 +17,7 @@ def index(performance):
         'rally': performance.rally,
         'category': performance.category,
         'youtube_id': performance.youtube_id,
-        'uploaded_at': performance.uploaded_at.utcnow().strftime('%Y-%m-%dT%H:%M:%S.000Z'),
+        'uploaded_at': performance.uploaded_at.strftime('%Y-%m-%dT%H:%M:%S.000Z'),
         'pilot': performance.pilot,
         'stage_number': performance.stage_number,
         'car': performance.car,
