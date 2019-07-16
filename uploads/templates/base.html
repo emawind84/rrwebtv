@@ -21,18 +21,20 @@
     <style>
       nav .brand-logo{margin-left:10px;}
       nav .extra-content{margin-left:150px;height: 100%;}
-      @media only screen and (max-width: 992px) {
-        nav .extra-content{margin-left:60px;}
-      }
-      
       body {
         display: flex;
         min-height: 100vh;
         flex-direction: column;
       }
-
       main {
         flex: 1 0 auto;
+      }
+      @media only screen and (max-width: 992px) {
+        nav .extra-content{margin-left:60px;}
+        nav .brand-logo {
+          left: 26%;
+          transform: translateX(-16%);
+        }
       }
     </style>
   </head>
@@ -42,7 +44,7 @@
       <div class="nav-wrapper"><a id="logo-container" href="/" class="brand-logo"><i class="material-icons left">live_tv</i> RealRally WebTV</a>
         <ul class="right hide-on-med-and-down">
           <li><a href="{% url 'archive:performances' %}" ><i class="material-icons left">search</i>{% trans "Search" %}</a></li>
-          <li><a href="{% url 'archive:share' %}" ><i class="material-icons left">videocam</i>{% trans "Share Video" %}</a></li>
+          <li><a href="{% url 'archive:share' %}" ><i class="material-icons left">share</i>{% trans "Share Video" %}</a></li>
           <li><a href="{% url 'model_form_upload' %}" ><i class="material-icons left">cloud_upload</i>{% trans "Upload Replay" %}</a></li>
           {% if user.is_authenticated %}
           <li><a href="{% url 'replays' %}">Replays</a></li>
@@ -58,7 +60,7 @@
         <ul id="nav-mobile" class="sidenav">
           <li><a href="{% url 'home' %}" ><i class="material-icons left">home</i>Home</a></li>
           <li><a href="{% url 'archive:performances' %}" ><i class="material-icons left">search</i>{% trans "Search" %}</a></li>
-          <li><a href="{% url 'archive:share' %}" ><i class="material-icons left">videocam</i>{% trans "Share Video" %}</a></li>
+          <li><a href="{% url 'archive:share' %}" ><i class="material-icons left">share</i>{% trans "Share Video" %}</a></li>
           <li><a href="{% url 'model_form_upload' %}"><i class="material-icons left">cloud_upload</i>{% trans "Upload Replay" %}</a></li>
           {% if user.is_authenticated %}
           <li><a href="{% url 'replays' %}">Replays</a></li>

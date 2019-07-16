@@ -12,16 +12,18 @@
             <label for="search"><i class="material-icons">search</i></label>
           </div>
           <div class="input-field col m2 s3">
-            <button class="btn-floating" type="submit"><i class="material-icons left" >search</i></button>
+            <button class="btn-floating green" type="submit"><i class="material-icons left" >search</i></button>
           </div>
         </div>
       </form>
     </div>
     <div class="section">
-      <h3>RealRally - WebTV - Media Sharing</h3>
+      <h4>RealRally WebTV - Media Sharing</h4>
       <p>{% trans "home_message" %}</p>
-      <a href="{% url 'model_form_upload' %}" class="btn"><i class="material-icons left">cloud_upload</i>{% trans "Upload Replay" %}</a>
-      <a href="{% url 'archive:share' %}" class="btn"><i class="material-icons left">videocam</i>{% trans "Share Video" %}</a>
+    </div>
+    <div class="section center-align" >
+      <a href="{% url 'model_form_upload' %}" class="btn-floating btn-large red" title="{% trans "Upload Replay" %}"><i class="material-icons">cloud_upload</i></a>
+      <a href="{% url 'archive:share' %}" class="btn-floating btn-large blue" title="{% trans "Share Video" %}"><i class="material-icons">share</i></a>
     </div>
     <div class="section">
       {% for obj in performances %}

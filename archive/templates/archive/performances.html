@@ -4,7 +4,7 @@
 {% block content %}
 <div class="section">
   <div class="row">
-    <div class="col l12">
+    <div class="col s12">
       <div class="row">
         {% csrf_token %}
         <form action="{% url 'archive:performances' %}" method="GET">      
@@ -13,7 +13,7 @@
             <label for="search"><i class="material-icons">search</i></label>
           </div>
           <div class="input-field col m2 s3">
-            <button class="btn-floating" type="submit"><i class="material-icons left" >search</i></button>
+            <button class="btn-floating green" type="submit"><i class="material-icons left" >search</i></button>
           </div>
         </form>
       </div>
