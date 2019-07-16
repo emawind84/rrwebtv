@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-04-24 14:54+0900\n"
+"POT-Creation-Date: 2019-07-16 13:54+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -52,6 +52,10 @@ msgstr ""
 msgid "Co-driver Nickname"
 msgstr ""
 
+#: core/forms.py:31
+msgid "Comments"
+msgstr ""
+
 #: core/forms.py:32
 msgid ""
 "I accept that these information collected will be used for the only purpose "
@@ -62,7 +66,12 @@ msgstr ""
 msgid "Please accept the terms."
 msgstr ""
 
-#: core/templates/core/home.html:8
+#: core/templates/core/home.html:15 templates/base.html:44
+#: templates/base.html:60
+msgid "Search"
+msgstr ""
+
+#: core/templates/core/home.html:26
 msgid "home_message"
 msgstr ""
 "This is a tiny web service for uploading replays and skins, in order to "
@@ -74,25 +83,46 @@ msgstr ""
 "websites. Make sure you accept and read the terms before uploading the "
 "materials and your informations."
 
-#: core/templates/core/home.html:9
-#: core/templates/core/model_form_upload.html:23 templates/base.html:45
-#: templates/base.html:59
+#: core/templates/core/home.html:27
+#: core/templates/core/model_form_upload.html:23 templates/base.html:46
+#: templates/base.html:62
 msgid "Upload Replay"
+msgstr ""
+
+#: core/templates/core/home.html:28 templates/base.html:45
+#: templates/base.html:61
+msgid "Share Video"
+msgstr ""
+
+#: core/templates/core/home.html:46
+msgid "Pilot"
+msgstr ""
+
+#: core/templates/core/home.html:47
+msgid "Car"
+msgstr ""
+
+#: core/templates/core/home.html:48
+msgid "Team"
 msgstr ""
 
 #: core/templates/core/model_form_upload.html:12
 msgid "upload_message"
-msgstr "Here you can upload one or more replay, insert name of the driver and co-driver, if you want to share them, and don't forget the skin of the car. If you already uploaded the skin with some previous replay, you don't need to upload it again!"
+msgstr ""
+"Here you can upload one or more replay, insert name of the driver and co-"
+"driver, if you want to share them, and don't forget the skin of the car. If "
+"you already uploaded the skin with some previous replay, you don't need to "
+"upload it again!"
 
 #: core/templates/core/model_form_upload.html:27
 msgid "Return to home"
 msgstr ""
 
-#: core/views.py:75
+#: core/views.py:79
 msgid "Thank you, we will create awesomeness with your contribution!"
 msgstr ""
 
-#: templates/base.html:83
+#: templates/base.html:86
 msgid "terms_message"
 msgstr ""
 "All the data collected are used for the only purpose of creating content for "

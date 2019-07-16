@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-04-24 14:55+0900\n"
+"POT-Creation-Date: 2019-07-16 13:54+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -58,6 +58,10 @@ msgstr "Nome del Co-pilota"
 msgid "Co-driver Nickname"
 msgstr "Nickname del Co-pilota"
 
+#: core/forms.py:31
+msgid "Comments"
+msgstr ""
+
 #: core/forms.py:32
 msgid ""
 "I accept that these information collected will be used for the only purpose "
@@ -70,7 +74,12 @@ msgstr ""
 msgid "Please accept the terms."
 msgstr "Per favore accetta i termini."
 
-#: core/templates/core/home.html:8
+#: core/templates/core/home.html:15 templates/base.html:44
+#: templates/base.html:60
+msgid "Search"
+msgstr ""
+
+#: core/templates/core/home.html:26
 msgid "home_message"
 msgstr ""
 "Questo e' un piccolo servizio web per caricare replay e skin, per poter "
@@ -82,11 +91,28 @@ msgstr ""
 "condivisi su siti web di social media. Accertati di leggere ed accettare le "
 "condizioni prima di caricare il materiale ed i tuoi dati personali"
 
-#: core/templates/core/home.html:9
-#: core/templates/core/model_form_upload.html:23 templates/base.html:45
-#: templates/base.html:59
+#: core/templates/core/home.html:27
+#: core/templates/core/model_form_upload.html:23 templates/base.html:46
+#: templates/base.html:62
 msgid "Upload Replay"
 msgstr "Carica Replay"
+
+#: core/templates/core/home.html:28 templates/base.html:45
+#: templates/base.html:61
+msgid "Share Video"
+msgstr "Condividi Video"
+
+#: core/templates/core/home.html:46
+msgid "Pilot"
+msgstr "Pilota"
+
+#: core/templates/core/home.html:47
+msgid "Car"
+msgstr "Vettura"
+
+#: core/templates/core/home.html:48
+msgid "Team"
+msgstr "Squadra"
 
 #: core/templates/core/model_form_upload.html:12
 msgid "upload_message"
@@ -99,11 +125,11 @@ msgstr ""
 msgid "Return to home"
 msgstr "Torna alla prima pagina"
 
-#: core/views.py:75
+#: core/views.py:79
 msgid "Thank you, we will create awesomeness with your contribution!"
 msgstr "Grazie per il tuo contributo!"
 
-#: templates/base.html:83
+#: templates/base.html:86
 msgid "terms_message"
 msgstr ""
 "Tutti i dati raccolti sono usati per il solo scopo di creare contenuto per "
