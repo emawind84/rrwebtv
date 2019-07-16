@@ -19,11 +19,11 @@
       {% part form.note prefix %}<i class="material-icons prefix">event_note</i>{% endpart %}
     {% endform %}
     </div>
-    <div class="section">
+    <div class="section right-align">
+        <a href="{% url 'home' %}" class="waves-effect btn-flat grey-text text-darken-3">{% trans "Cancel" %}</a>
       <button type="submit" name="_submit" class="btn btn-primary waves-effect"><i class="material-icons left" >save</i>{% trans "Upload Replay" %}</button>
     </div>
   </form>
 
   <p><a href="{% url 'home' %}">{% trans "Return to home" %}</a></p>
-</div>
 {% endblock content %}

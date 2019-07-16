@@ -2,27 +2,25 @@
 {% load material_form %}
 
 {% block content %}
-<div class="row valign change-form">
-  <div class="col s12 m8 offset-m2 l8 offset-l2">
-    <div class="card">
-        <form action="{% url 'archive:new_performance' replay_id %}" method='post' class="viewform">
-        <div class="card-content">
-          <span class="card-title grey-text text-darken-2">{% trans "Performance" %}</span>
-          <div class="section">
-          {% csrf_token  %}
-          {% form form=form %}{% endform %}
-          </div>
-        </div>
-        <div class="card-action">
-          <div class="right-align">
-            <button type="submit" name="_submit" class="btn btn-primary waves-effect"><i class="material-icons left" >save</i>{% trans "Add video" %}</button>
-            <a href="{% url 'archive:performances' %}" class="waves-effect btn-flat grey-text text-darken-3">{% trans "Cancel" %}</a>
-          </div>
-        </div>
-      </form>
-    </div>
+  {% if messages %}
+  <div class="messages">
+      {% for message in messages %}
+      <div{% if message.tags %} class="{{ message.tags }} card-panel {% if message.level_tag == 'error' %}red{% else %}green{% endif %}"{% endif %}>{{ message }}</div>
+      {% endfor %}
   </div>
-</div>
+  {% endif %}
+  <form action="{% url 'archive:new_performance' replay_id %}" method='post' class="viewform">
+    <div class="section">
+      {% csrf_token  %}
+      {% form form=form %}{% endform %}
+    </div>
+    <div class="section right-align">
+      <a href="{% url 'archive:performances' %}" class="waves-effect btn-flat grey-text text-darken-3">{% trans "Cancel" %}</a>
+      <button type="submit" name="_submit" class="btn btn-primary waves-effect"><i class="material-icons left" >save</i>{% trans "Add video" %}</button>
+    </div>
+  </form>
+
+  <p><a href="{% url 'home' %}">{% trans "Return to home" %}</a></p>
 {% endblock content %}
 
 {% block content-script %}

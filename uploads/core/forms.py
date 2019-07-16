@@ -19,9 +19,10 @@ class DocumentForm(forms.ModelForm):
         model = Document
         fields = ('pilot_nickname', 'pilot_name', 'copilot_nickname', 'copilot_name', 'note', 'replays', 'skin', 'gdpr_accept')
         help_texts = {
+            'pilot_nickname': _('*Required'),
             'pilot_name': _('This name might be included on videos and other resources online, make sure you read the terms.'),
             'copilot_name': _('This name might be included on videos and other resources online, make sure you read the terms.'),
-            'skin': _('This is the skin of the car, please upload a compressed file with only the files you edited!'),
+            'skin': _('This is the skin of the car, please upload a compressed file with only the files you edited!')
         }
         labels = {
             'pilot_name': _('Driver Real Name'),

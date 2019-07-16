@@ -24,6 +24,12 @@ class PerformanceForm(forms.ModelForm):
             'gdpr_accept': _('I accept that these information collected will be used for the only purpose of creating videos inherent RealRally.')
         }
 
+        help_texts = {
+            'track': _('*Required'),
+            'youtube_id': _('*Required'),
+            'gdpr_accept': _('*Required')
+        }
+
     def clean_youtube_id(self):
         data = self.cleaned_data['youtube_id']
         return parse_youtube_id(data)
