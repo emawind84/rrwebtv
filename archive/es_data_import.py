@@ -9,8 +9,8 @@ import sys
 from django.conf import settings
 
 # ElasticSearch parameters
-ES_HOST = '127.0.0.1'
-ES_PORT = '9200'
+ES_HOST = settings.ES_HOST
+ES_PORT = settings.ES_PORT
 
 # Lets make some logs!
 logging.basicConfig(format='%(asctime)s - %(levelname)s: %(message)s')
@@ -55,6 +55,6 @@ def searchDocuments(index, query):
     if jsonResponse['hits']:
         data = [d['_source'] for d in jsonResponse['hits']['hits']]
         total = jsonResponse['hits']['total']
-        took = jsonResponse['took']
+        took = jsonResponse['took'] / 1000
 
     return (data, total, took)

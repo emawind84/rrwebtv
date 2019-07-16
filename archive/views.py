@@ -1,3 +1,4 @@
+import time
 import dateutil.parser
 from datetime import timedelta, date
 from django.shortcuts import render
@@ -14,17 +15,26 @@ from uploads.core.utils import parse_date, parse_stage, parse_category, parse_ca
 
 def performances(request):
     data = request.GET
-
-    start_date = parse_date(data.get('from_date'))
-    end_date = parse_date(data.get('to_date'))
-    
-    documents, total, took = search(search=data.get('search'))
+    start = time.time()
+    try:
+        documents, total, took = search(search=data.get('search'))
+    except:
+        documents = Performance.objects.all()
+        if data.get('search', '') != '':
+            documents = documents.filter(
+                Q(pilot__icontains=data.get('search')) | 
+                Q(car__icontains=data.get('search')) |
+                Q(rally__icontains=data.get('search')) |
+                Q(team__icontains=data.get('search')) | 
+                Q(track__icontains=data.get('search'))
+            )
+        total = documents.count(); took = 0
 
     return render(request, 'archive/performances.html', {
         'performances': documents, 
         'total': total, 
         'form': data,
-        'took': took / 1000
+        'took': '{0:.3f}'.format(took or time.time() - start)
     })
 
 @login_required

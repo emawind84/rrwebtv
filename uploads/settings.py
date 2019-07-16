@@ -165,9 +165,11 @@ LOGIN_REDIRECT_URL = 'home'
 
 HOME_VIDEO_URL = 'https://www.youtube.com/embed/-GQ3k4ze5VU'
 
+ES_HOST = '127.0.0.1'
+ES_PORT = '9200'
 ES_INDEX = 'rrwebtv-dev'
 
-LOGGING_LEVEL = logging.DEBUG
+LOGGING_LEVEL = logging.INFO
 
 try:
     from .local_settings import *
