@@ -4,28 +4,25 @@ from django.conf import settings
 from dateutil.parser import parse
 import re
 
-def create(**args):
-    performance = Performance(**args)
-    performance.save()
-
-    index(performance)
-
 def index(performance):
-    createOrUpdateDocument(settings.ES_INDEX, performance.id, {
-        'id': performance.id,
-        'track': performance.track,
-        'rally': performance.rally,
-        'category': performance.category,
-        'youtube_id': performance.youtube_id,
-        'uploaded_at': performance.uploaded_at.strftime('%Y-%m-%dT%H:%M:%S.000Z'),
-        'pilot': performance.pilot,
-        'stage_number': performance.stage_number,
-        'car': performance.car,
-        'time': performance.time,
-        'team': performance.team,
-        'note': performance.note,
-        'featured': performance.featured
-    })
+    try:
+        createOrUpdateDocument(settings.ES_INDEX, performance.id, {
+            'id': performance.id,
+            'track': performance.track,
+            'rally': performance.rally,
+            'category': performance.category,
+            'youtube_id': performance.youtube_id,
+            'uploaded_at': performance.uploaded_at.strftime('%Y-%m-%dT%H:%M:%S.000Z'),
+            'pilot': performance.pilot,
+            'stage_number': performance.stage_number,
+            'car': performance.car,
+            'time': performance.time,
+            'team': performance.team,
+            'note': performance.note,
+            'featured': performance.featured
+        })
+    except:
+        pass
 
 def index_all():
     for performance in Performance.objects.all():

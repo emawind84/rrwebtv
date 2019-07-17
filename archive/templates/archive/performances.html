@@ -54,7 +54,7 @@
                     <p><b>{% trans "Time" %}: </b>{{obj.time}}</p>
                     <p><b>{% trans "Stage (SS)" %}: </b>{{obj.stage_number}}</p>
                     <p><b>{% trans "Note" %}: </b>{{obj.note}}</p>
-                    <p><b>{% trans "Uploaded" %}: </b>{{obj.uploaded_at}}</p>
+                    <p><b>{% trans "Uploaded" %}: </b>{{obj.uploaded_at|date:'D, d N H:i e'}}</p>
                 </div>
             </div>
         </div>
