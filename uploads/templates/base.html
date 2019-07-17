@@ -11,7 +11,7 @@
     <meta http-equiv="Content-Language" value="en-US" />
     {% endblock head_meta_contentlanguage %}
     {% block head_meta_viewport %}
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=0.8" />
     {% endblock head_meta_viewport %}
 
     {% include 'material/includes/material_css.html' %}
@@ -28,6 +28,9 @@
       }
       main {
         flex: 1 0 auto;
+      }
+      input[type=search] {
+        -webkit-appearance: none;
       }
       @media only screen and (max-width: 992px) {
         nav .extra-content{margin-left:60px;}
