@@ -5,18 +5,11 @@ from django.conf.urls.static import static
 from django.urls import include, path
 from django.views.generic import TemplateView
 
-from uploads.core import views
-
 urlpatterns = [
-    url(r'^$', views.home, name='home'),
 
-    url(r'^admin/', admin.site.urls),
+    path('', include('uploads.core.urls')),
 
-    url(r'^uploads/form/$', views.ReplayUploadView.as_view(), name='model_form_upload'),
-    
-    url(r'^replays/', views.replays, name='replays'),
-
-    url(r'^edit_replay/(?P<replay_id>\d+)/$', views.edit_replay, name='edit_replay'),
+    path('admin/', admin.site.urls),
 
     path('robots.txt', TemplateView.as_view(template_name="robots.txt", content_type='text/plain')),
 
