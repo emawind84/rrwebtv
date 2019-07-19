@@ -169,7 +169,7 @@ ES_HOST = '127.0.0.1'
 ES_PORT = '9200'
 ES_INDEX = 'rrwebtv-dev'
 
-LOGGING_LEVEL = logging.INFO
+LOGGING_LEVEL = logging.DEBUG
 
 try:
     from .local_settings import *

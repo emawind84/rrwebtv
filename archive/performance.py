@@ -1,8 +1,9 @@
+import re
 from archive.es_data_import import createOrUpdateDocument, deleteDocument, searchDocuments
 from archive.models import Performance
 from django.conf import settings
 from dateutil.parser import parse
-import re
+from requests.exceptions import ConnectionError
 
 def index(performance):
     try:
@@ -21,7 +22,7 @@ def index(performance):
             'note': performance.note,
             'featured': performance.featured
         })
-    except:
+    except ConnectionError:
         pass
 
 def index_all():
@@ -29,10 +30,13 @@ def index_all():
         index(performance)
 
 def delete(performance):
-    deleteDocument(settings.ES_INDEX, performance.id)
+    try:
+        deleteDocument(settings.ES_INDEX, performance.id)
+    except ConnectionError:
+        pass
     performance.delete()
 
-def search(search):
+def search(search, page=1, per_page=18):
     query = {
         "query": {
             "bool": {
@@ -43,8 +47,8 @@ def search(search):
                 ]
             }
         },
-        "from": 0,
-        "size": 20,
+        "from": (page - 1) * per_page,
+        "size": 200,
         "sort": [
             { "uploaded_at" : {"order" : "desc"}},
         ],

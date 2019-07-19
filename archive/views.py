@@ -1,10 +1,12 @@
 import time
+import sys
 import dateutil.parser
 from datetime import timedelta, date
 from django.shortcuts import render
 from django.db.models import Q
 from django.http import HttpResponseRedirect, HttpResponse, Http404
 from django.urls import reverse
+from django.core.paginator import Paginator
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from archive.models import Performance
@@ -12,23 +14,28 @@ from archive.forms import PerformanceForm, PublicPerformanceForm, initial_from_r
 from archive.performance import index, delete, search
 from uploads.core.models import Replay
 from uploads.core.utils import parse_date, parse_stage, parse_category, parse_car
+from requests.exceptions import ConnectionError
 
 def performances(request):
-    data = request.GET
     start = time.time()
+    data = request.GET
+    page = data.get('page', 1)
     try:
-        documents, total, took = search(search=data.get('search'))
-    except:
-        documents = Performance.objects.all()
+        document_list, total, took = search(search=data.get('search'))
+    except ConnectionError:
+        document_list = Performance.objects.all()
         if data.get('search', '') != '':
-            documents = documents.filter(
+            document_list = document_list.filter(
                 Q(pilot__icontains=data.get('search')) | 
                 Q(car__icontains=data.get('search')) |
                 Q(rally__icontains=data.get('search')) |
                 Q(team__icontains=data.get('search')) | 
                 Q(track__icontains=data.get('search'))
             )
-        total = documents.count(); took = 0
+        total = document_list.count(); took = 0
+
+    paginator = Paginator(document_list, 18, orphans=5) # Show 25 contacts per page
+    documents = paginator.get_page(page)
 
     return render(request, 'archive/performances.html', {
         'performances': documents, 

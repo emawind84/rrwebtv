@@ -60,6 +60,43 @@
         </div>
         {% endfor %}
       </div>
+      <div class="section">
+        <ul class="pagination">
+          {% if performances.has_previous %}
+          <li><a href="?page={{ performances.previous_page_number }}"><i class="material-icons">chevron_left</i></a></li>
+          {% endif %}
+          {% for l in performances.paginator.page_range %}
+            {% if l <= performances.number|add:5 and l >= performances.number|add:-5 %}
+              {% if performances.number == l %}
+              <li class="active"><a href="#!">{{forloop.counter}}</a></li>
+              {% else %}
+              <li class="waves-effect"><a href="?page={{forloop.counter}}">{{forloop.counter}}</a></li>
+              {% endif %}
+            {% endif %}
+          {% endfor %}
+          {% if performances.has_next %}
+          <li class="waves-effect"><a href="?page={{ performances.next_page_number }}"><i class="material-icons">chevron_right</i></a></li>
+          {% endif %}
+
+        </ul>
+        <!-- <div class="pagination">
+          <span class="step-links">
+            {% if performances.has_previous %}
+              <a href="?page=1">&laquo; first</a>
+              <a href="?page={{ performances.previous_page_number }}">previous</a>
+            {% endif %}
+    
+            <span class="current">
+              Page {{ performances.number }} of {{ performances.paginator.num_pages }}.
+            </span>
+    
+            {% if performances.has_next %}
+              <a href="?page={{ performances.next_page_number }}">next</a>
+              <a href="?page={{ performances.paginator.num_pages }}">last &raquo;</a>
+            {% endif %}
+          </span>
+        </div> -->
+      </div>
    </div>
   </div>
 </div>
