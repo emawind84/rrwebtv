@@ -1,7 +1,6 @@
 [Unit]
 Description=RealRally WebTV Media Sharing
 After=network.target
-Requires=vault.service
 StartLimitIntervalSec=0
 
 [Service]
