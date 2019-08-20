@@ -20,7 +20,7 @@
 
     <style>
       nav .brand-logo{margin-left:10px;}
-      nav .brand-logo img {height: 40px; margin: 7px 0;}
+      nav .brand-logo img {height: 42px; margin: 9px 0;}
       nav .extra-content{margin-left:150px;height: 100%;}
       body {
         display: flex;
@@ -45,7 +45,7 @@
   <body>
     <main>
     <nav class="" role="navigation">
-      <div class="nav-wrapper"><a id="logo-container" href="/" class="brand-logo"><img src="{% static 'img/rrwebtv-logo.png' %}" ></a>
+      <div class="nav-wrapper"><a id="logo-container" href="/" class="brand-logo"><img src="{% static 'img/rrwebtv-logo.png' %}" alt="RealRally WebTV Logo" ></a>
         <ul class="right hide-on-med-and-down">
           <li><a href="{% url 'archive:performances' %}" ><i class="material-icons left">search</i>{% trans "Search" %}</a></li>
           <li><a href="{% url 'archive:share' %}" ><i class="material-icons left">share</i>{% trans "Share Video" %}</a></li>
