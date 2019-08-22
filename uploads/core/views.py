@@ -21,7 +21,8 @@ from uploads.core.utils import parse_date
 from archive.models import Performance
 
 def home(request):
-    performances = Performance.objects.all().filter(featured=True)
+    #performances = Performance.objects.all().filter(featured=True)
+    performances = Performance.objects.all()[:6]
     return render(request, 'core/home.html', {'performances': performances, 'video_url': settings.HOME_VIDEO_URL})
 
 @login_required
