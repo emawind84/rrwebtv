@@ -18,3 +18,6 @@ class Performance(models.Model):
 
     def __str__(self):
         return '{} - {}'.format(self.uploaded_at, self.track)
+
+    class Meta:
+        ordering = ('-featured', '-uploaded_at',)
