@@ -45,42 +45,42 @@
   </head>
   <body>
     <main>
-    <nav class="" role="navigation">
-      <div class="nav-wrapper"><a id="logo-container" href="/" class="brand-logo"><img src="{% static 'img/rrwebtv-logo.png' %}" alt="RealRally WebTV Logo" ></a>
-        <ul class="right hide-on-med-and-down">
-          <li><a href="{% url 'archive:performances' %}" ><i class="material-icons left">search</i>{% trans "Search" %}</a></li>
-          <li><a href="{% url 'archive:share' %}" ><i class="material-icons left">share</i>{% trans "Share Video" %}</a></li>
-          <li><a href="{% url 'model_form_upload' %}" ><i class="material-icons left">cloud_upload</i>{% trans "Upload Replay" %}</a></li>
-          {% if user.is_authenticated %}
-          <li><a href="{% url 'replays' %}">Replays</a></li>
-          {% if perms.auth.add_user %}
-          <li><a href="{% url 'users:register' %}">Register</a></li>
-          {% endif %}
-          <li><a href="{% url 'users:logout' %}">Log out</a></li>
-          {% else %}
-          <li><a href="{% url 'users:login' %}">Log in</a></li>
-          {% endif %}
-        </ul>
-  
-        <ul id="nav-mobile" class="sidenav">
-          <li><a href="{% url 'home' %}" ><i class="material-icons left">home</i>Home</a></li>
-          <li><a href="{% url 'archive:performances' %}" ><i class="material-icons left">search</i>{% trans "Search" %}</a></li>
-          <li><a href="{% url 'archive:share' %}" ><i class="material-icons left">share</i>{% trans "Share Video" %}</a></li>
-          <li><a href="{% url 'model_form_upload' %}"><i class="material-icons left">cloud_upload</i>{% trans "Upload Replay" %}</a></li>
-          {% if user.is_authenticated %}
-          <li><a href="{% url 'replays' %}">Replays</a></li>
-          {% if perms.auth.add_user %}
-          <li><a href="{% url 'users:register' %}">Register</a></li>
-          {% endif %}
-          <li><a href="{% url 'users:logout' %}">Log out</a></li>
-          {% else %}
-          <li><a href="{% url 'users:login' %}">Log in</a></li>
-          {% endif %}
-        </ul>
-        <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-      </div>
-    </nav>
-    
+    <div class="navbar-fixed">
+      <nav class="" role="navigation">
+        <div class="nav-wrapper"><a id="logo-container" href="/" class="brand-logo"><img src="{% static 'img/rrwebtv-logo.png' %}" alt="RealRally WebTV Logo" ></a>
+          <ul class="right hide-on-med-and-down">
+            <li><a href="{% url 'archive:performances' %}" ><i class="material-icons left">search</i>{% trans "Search" %}</a></li>
+            <li><a href="{% url 'archive:share' %}" ><i class="material-icons left">share</i>{% trans "Share Video" %}</a></li>
+            <li><a href="{% url 'model_form_upload' %}" ><i class="material-icons left">cloud_upload</i>{% trans "Upload Replay" %}</a></li>
+            {% if user.is_authenticated %}
+            <li><a href="{% url 'replays' %}">Replays</a></li>
+            {% if perms.auth.add_user %}
+            <li><a href="{% url 'users:register' %}">Register</a></li>
+            {% endif %}
+            <li><a href="{% url 'users:logout' %}">Log out</a></li>
+            {% else %}
+            <li><a href="{% url 'users:login' %}">Log in</a></li>
+            {% endif %}
+          </ul>
+          <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+        </div>
+      </nav>
+    </div>
+    <ul id="nav-mobile" class="sidenav">
+      <li><a href="{% url 'home' %}" ><i class="material-icons left">home</i>Home</a></li>
+      <li><a href="{% url 'archive:performances' %}" ><i class="material-icons left">search</i>{% trans "Search" %}</a></li>
+      <li><a href="{% url 'archive:share' %}" ><i class="material-icons left">share</i>{% trans "Share Video" %}</a></li>
+      <li><a href="{% url 'model_form_upload' %}"><i class="material-icons left">cloud_upload</i>{% trans "Upload Replay" %}</a></li>
+      {% if user.is_authenticated %}
+      <li><a href="{% url 'replays' %}">Replays</a></li>
+      {% if perms.auth.add_user %}
+      <li><a href="{% url 'users:register' %}">Register</a></li>
+      {% endif %}
+      <li><a href="{% url 'users:logout' %}">Log out</a></li>
+      {% else %}
+      <li><a href="{% url 'users:login' %}">Log in</a></li>
+      {% endif %}
+    </ul>
     <div class="container">
       {% block content %}{% endblock content %}
       {% block content-script %}{% endblock content-script %}
