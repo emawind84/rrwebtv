@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-07-16 13:54+0900\n"
+"POT-Creation-Date: 2019-09-23 09:46+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,60 +18,59 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: core/forms.py:9
+#: .\core\forms.py:9
 msgid ""
 "You can upload several replay files, make sure you upload only the original "
 "files, no other files are permitted."
 msgstr ""
 
-#: core/forms.py:22 core/forms.py:23
+#: .\core\forms.py:22
+msgid "*Required"
+msgstr ""
+
+#: .\core\forms.py:23 .\core\forms.py:24
 msgid ""
 "This name might be included on videos and other resources online, make sure "
 "you read the terms."
 msgstr ""
 
-#: core/forms.py:24
+#: .\core\forms.py:25
 msgid ""
 "This is the skin of the car, please upload a compressed file with only the "
 "files you edited!"
 msgstr ""
 
-#: core/forms.py:27
+#: .\core\forms.py:28
 msgid "Driver Real Name"
 msgstr ""
 
-#: core/forms.py:28
+#: .\core\forms.py:29
 msgid "Driver Nickname"
 msgstr ""
 
-#: core/forms.py:29
+#: .\core\forms.py:30
 msgid "Co-driver Real Name"
 msgstr ""
 
-#: core/forms.py:30
+#: .\core\forms.py:31
 msgid "Co-driver Nickname"
 msgstr ""
 
-#: core/forms.py:31
+#: .\core\forms.py:32
 msgid "Comments"
 msgstr ""
 
-#: core/forms.py:32
+#: .\core\forms.py:33
 msgid ""
 "I accept that these information collected will be used for the only purpose "
 "of creating videos inherent RealRally."
 msgstr ""
 
-#: core/forms.py:38
+#: .\core\forms.py:39
 msgid "Please accept the terms."
 msgstr ""
 
-#: core/templates/core/home.html:15 templates/base.html:44
-#: templates/base.html:60
-msgid "Search"
-msgstr ""
-
-#: core/templates/core/home.html:26
+#: .\core\templates\core\home.html:22
 msgid "home_message"
 msgstr ""
 "This is a tiny web service for uploading replays and skins, in order to "
@@ -83,30 +82,31 @@ msgstr ""
 "websites. Make sure you accept and read the terms before uploading the "
 "materials and your informations."
 
-#: core/templates/core/home.html:27
-#: core/templates/core/model_form_upload.html:23 templates/base.html:46
-#: templates/base.html:62
+#: .\core\templates\core\home.html:25
+#: .\core\templates\core\model_form_upload.html:12
+#: .\core\templates\core\model_form_upload.html:25 .\templates\base.html:54
+#: .\templates\base.html:74
 msgid "Upload Replay"
-msgstr ""
+msgstr "Upload"
 
-#: core/templates/core/home.html:28 templates/base.html:45
-#: templates/base.html:61
+#: .\core\templates\core\home.html:26 .\templates\base.html:53
+#: .\templates\base.html:73
 msgid "Share Video"
-msgstr ""
+msgstr "Share"
 
-#: core/templates/core/home.html:46
+#: .\core\templates\core\home.html:40
 msgid "Pilot"
 msgstr ""
 
-#: core/templates/core/home.html:47
+#: .\core\templates\core\home.html:41
 msgid "Car"
 msgstr ""
 
-#: core/templates/core/home.html:48
+#: .\core\templates\core\home.html:42
 msgid "Team"
 msgstr ""
 
-#: core/templates/core/model_form_upload.html:12
+#: .\core\templates\core\model_form_upload.html:13
 msgid "upload_message"
 msgstr ""
 "Here you can upload one or more replay, insert name of the driver and co-"
@@ -114,15 +114,27 @@ msgstr ""
 "you already uploaded the skin with some previous replay, you don't need to "
 "upload it again!"
 
-#: core/templates/core/model_form_upload.html:27
+#: .\core\templates\core\model_form_upload.html:24
+msgid "Cancel"
+msgstr ""
+
+#: .\core\templates\core\model_form_upload.html:29
 msgid "Return to home"
 msgstr ""
 
-#: core/views.py:79
+#: .\core\views.py:78
 msgid "Thank you, we will create awesomeness with your contribution!"
 msgstr ""
 
-#: templates/base.html:86
+#: .\templates\base.html:52 .\templates\base.html:72
+msgid "Videos"
+msgstr ""
+
+#: .\templates\base.html:55 .\templates\base.html:75
+msgid "Photos"
+msgstr ""
+
+#: .\templates\base.html:95
 msgid "terms_message"
 msgstr ""
 "All the data collected are used for the only purpose of creating content for "
